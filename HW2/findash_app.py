@@ -1,3 +1,4 @@
+import requests
 import yahoo_fin.stock_info as si
 import streamlit as st
 import numpy as np
@@ -555,8 +556,25 @@ def tab7():
 #==============================================================================
 # Main body
 #==============================================================================
+def get_sp500_tickers():
+    """
+    Lấy danh sách mã cổ phiếu S&P 500 từ Wikipedia (an toàn, không bị 403).
+    Nếu lỗi, dùng danh sách tĩnh dự phòng.
+    """
+    url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+    headers = {"User-Agent": "Mozilla/5.0"}  # Giả làm trình duyệt
+    try:
+        html = requests.get(url, headers=headers).text
+        tables = pd.read_html(html)
+        tickers = tables[0]['Symbol'].tolist()
+        return tickers
+    except Exception as e:
+        print("⚠️ Lỗi tải danh sách S&P 500:", e)
+        # Danh sách dự phòng nếu Wikipedia chặn
+        return ['AAPL', 'MSFT', 'GOOG', 'AMZN', 'META', 'TSLA', 'NVDA', 'JPM', 'V', 'UNH']
 
 def run():
+    
     
     # Add the ticker selection on the sidebar
     # Get the list of stock tickers from S&P500
