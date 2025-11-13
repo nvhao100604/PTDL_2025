@@ -2,7 +2,6 @@
 VN30 Financial Dashboard - FinDash Vietnam
 Phiên bản cho thị trường chứng khoán Việt Nam
 """
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -64,7 +63,7 @@ def get_stock_data_vn(ticker, start_date=None, end_date=None):
     Lấy dữ liệu cổ phiếu Việt Nam từ vnstock hoặc nguồn khác
     """
     try:
-        # Thử dùng vnstock nếu có cài đặt
+        # Dùng vnstock 
         from vnstock import stock_historical_data
         
         if start_date is None:
