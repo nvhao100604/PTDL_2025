@@ -9,14 +9,17 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 #import pyfolio as pf
-
+import time  # <--- thêm dòng này
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
     
 #==============================================================================
 # Tab 1 Summary
 #==============================================================================
 
-def tab1():
+def tab1_():
     # Lấy ticker từ biến toàn cục
     global ticker
 
@@ -175,7 +178,7 @@ def tab1():
         
     if ticker != '-':
             chartdata = getstockdata(ticker) 
-            # Giữ lại kiểm tra .empty đã sửa lỗi ValueError trước đó
+            # Giữ lại kiểm tra .empty đã sửa lỗi ValueError
             if chartdata.empty:
                 st.warning(f"Could not retrieve price data for ticker {ticker}. Please try another ticker.") 
             else:
@@ -201,132 +204,17 @@ def tab1():
 #==============================================================================
 # Tab 2 Chart
 #==============================================================================
-
-
-#The code below divides the streamlit page into 5 columns. The first two columns
-#have a date picker option to select start and end dates and the the other three
-#have dropdown selection boxes for duration, interval, and type of plot.
-
-# def tab2():
-#     st.title("Chart")
-#     st.write(ticker)
-    
-#     st.write("Set duration to '-' to select date range")
-    
-#     c1, c2, c3, c4,c5 = st.columns((1,1,1,1,1))
-    
-#     with c1:
-        
-#         start_date = st.date_input("Start date", datetime.today().date() - timedelta(days=30))
-        
-#     with c2:
-        
-#         end_date = st.date_input("End date", datetime.today().date())        
-        
-#     with c3:
-        
-#         duration = st.selectbox("Select duration", ['-', '1Mo', '3Mo', '6Mo', 'YTD','1Y', '3Y','5Y', 'MAX'])          
-        
-#     with c4: 
-        
-#         inter = st.selectbox("Select interval", ['1d', '1mo'])
-        
-#     with c5:
-        
-#         plot = st.selectbox("Select Plot", ['Line', 'Candle'])
-    
-#     def flatten_columns(df):
-#         df.columns = [c[0] if isinstance(c, tuple) else c for c in df.columns]
-#         return df
-        
- 
-# #The code below first obtains all the data using the download option from yahoo finance.
-# #It then creates a column for the simple moving average, makes the date index into a column
-# #and then subsets the dataframe to get just the date and and SMA column.
-# #Then if a duration is selected from the dropdown, data for that duration is downloaded
-# # and the SMA column is merged to the dataframe. If a duration is not selected then
-# #automatically the specified date range is used to get the data and that is also merged
-# #with the SMA column
-# #References:
-# #https://towardsdatascience.com/data-science-in-finance-56a4d99279f7
-
-           
-             
-#     @st.cache_data           
-#     def getchartdata(ticker):
-
-#         SMA = yf.download(ticker, start="1900-01-01", progress=False)
-
-#         # ✅ Flatten MultiIndex columns
-#         SMA = flatten_columns(SMA)
-
-#         SMA.index.name = "Date"
-#         SMA = SMA.reset_index()
-
-#         SMA["SMA"] = SMA["Close"].rolling(50).mean()
-#         SMA = SMA[["Date", "SMA"]]
-
-#         # Load chartdata
-#         if duration != "-":
-#             chartdata = yf.download(ticker, period=duration, interval=inter)
-#         else:
-#             chartdata = yf.download(ticker, start=start_date, end=end_date, interval=inter)
-
-#         # ✅ Flatten MultiIndex columns
-#         chartdata = flatten_columns(chartdata)
-
-#         chartdata.index.name = "Date"
-#         chartdata = chartdata.reset_index()
-
-#         # ✅ Debug (giữ lại)
-#         print("==== SMA COLUMNS ====")
-#         print(SMA.columns.tolist())
-#         print("==== CHARTDATA COLUMNS ====")
-#         print(chartdata.columns.tolist())
-
-#         # ✅ Merge không lỗi nữa
-#         chartdata = chartdata.merge(SMA, on="Date", how="left")
-#         return chartdata
-
-
-# #The code below uses plotly to visualize the data. Subplots from plotly is used to make 2 y axis.
-# #First y axis shows the stock close price and SMA and the second is used to show volume. 
-# #Plotly graph objects are used to add graphs to the axes.The range for the y axis for 
-# #volume is manipulated so that the bars appear small.
-# #References:
-# #https://plotly.com/python/multiple-axes/   
-# #https://plotly.com/python/candlestick-charts/        
-        
-#     if ticker != '-':
-#             chartdata = getchartdata(ticker) 
-            
-                       
-#             fig = make_subplots(specs=[[{"secondary_y": True}]])
-            
-#             if plot == 'Line':
-#                 fig.add_trace(go.Scatter(x=chartdata['Date'], y=chartdata['Close'], mode='lines', 
-#                                          name = 'Close'), secondary_y = False)
-#             else:
-#                 fig.add_trace(go.Candlestick(x = chartdata['Date'], open = chartdata['Open'], 
-#                                              high = chartdata['High'], low = chartdata['Low'], close = chartdata['Close'], name = 'Candle'))
-              
-                    
-#             fig.add_trace(go.Scatter(x=chartdata['Date'], y=chartdata['SMA'], mode='lines', name = '50-day SMA'), secondary_y = False)
-            
-#             fig.add_trace(go.Bar(x = chartdata['Date'], y = chartdata['Volume'], name = 'Volume'), secondary_y = True)
-
-#             fig.update_yaxes(range=[0, chartdata['Volume'].max()*3], showticklabels=False, secondary_y=True)
-            
-#             max_volume = chartdata['Volume'].max()
-#             # Chỉ cập nhật trục Y cho volume nếu max_volume > 0
-#             if max_volume > 0:
-#                  fig.update_yaxes(range=[0, max_volume * 3], showticklabels=False, secondary_y=True)
-#             else:
-#                  # Nếu max volume là 0, chỉ cần ẩn trục Y thứ 2
-#                  fig.update_yaxes(showticklabels=False, secondary_y=True)
       
-#             st.plotly_chart(fig)
-           
+
+#The code below first obtains all the data using the download option from yahoo finance.
+#It then creates a column for the simple moving average, makes the date index into a column
+#and then subsets the dataframe to get just the date and and SMA column.
+#Then if a duration is selected from the dropdown, data for that duration is downloaded
+# and the SMA column is merged to the dataframe. If a duration is not selected then
+#automatically the specified date range is used to get the data and that is also merged
+#with the SMA column
+#References:
+#https://towardsdatascience.com/data-science-in-finance-56a4d99279f7          
              
 @st.cache_data
 def _download_prices(ticker, start_date=None, end_date=None, duration='-', inter='1d'):
@@ -370,6 +258,10 @@ def _rsi(close, period=14):
     rsi = 100 - (100 / (1 + rs))
     return rsi
 
+#The code below divides the streamlit page into 5 columns. The first two columns
+#have a date picker option to select start and end dates and the the other three
+#have dropdown selection boxes for duration, interval, and type of plot.
+
 def tab2():
     st.title("Chart")
     st.write(ticker)
@@ -386,6 +278,14 @@ def tab2():
         inter = st.selectbox("Select interval", ['1d', '1wk', '1mo'])
     with c5:
         plot = st.selectbox("Select Plot", ['Line', 'Candle'])
+
+    #The code below uses plotly to visualize the data. Subplots from plotly is used to make 2 y axis.
+    #First y axis shows the stock close price and SMA and the second is used to show volume. 
+    #Plotly graph objects are used to add graphs to the axes.The range for the y axis for 
+    #volume is manipulated so that the bars appear small.
+    #References:
+    #https://plotly.com/python/multiple-axes/   
+    #https://plotly.com/python/candlestick-charts/  
 
     if ticker == '-':
         st.info("Chọn mã ở sidebar để xem biểu đồ.")
@@ -479,116 +379,6 @@ def tab2():
 #The code below obtains information using get_stats_valuation and get_stats in
 #Yahoo Finance. It then slices the dataframes and displays them in different 
 #columns of the streamlit page under different headings.
-# def tab3():
-#      st.title("Statistics")
-#      st.write(ticker)
-#      c1, c2 = st.columns(2)
-     
-         
-     
-#      with c1:
-#          st.header("Valuation Measures")
-#          #@st.cache
-#          def getvaluation(ticker):
-#                  return si.get_stats_valuation(ticker)
-    
-#          if ticker != '-':
-#                 valuation = getvaluation(ticker)
-#                 valuation[1] = valuation[1].astype(str)
-#                 valuation = valuation.rename(columns = {0: 'Attribute', 1: ''})
-#                 valuation.set_index('Attribute', inplace=True)
-#                 st.table(valuation)
-                
-        
-#          st.header("Financial Highlights")
-#          st.subheader("Fiscal Year")
-         
-#          #@st.cache
-#          def getstats(ticker):
-#                  return si.get_stats(ticker)
-         
-#          if ticker != '-':
-#                 stats = getstats(ticker)
-#                 stats['Value'] = stats['Value'].astype(str)
-#                 stats.set_index('Attribute', inplace=True)
-#                 st.table(stats.iloc[29:31,])
-                
-        
-#          st.subheader("Profitability")
-         
-#          if ticker != '-':
-#                 stats = getstats(ticker)
-#                 stats['Value'] = stats['Value'].astype(str)
-#                 stats.set_index('Attribute', inplace=True)
-#                 st.table(stats.iloc[31:33,])
-                
-                
-                
-#          st.subheader("Management Effectiveness")
-         
-#          if ticker != '-':
-#                 stats = getstats(ticker)
-#                 stats['Value'] = stats['Value'].astype(str)
-#                 stats.set_index('Attribute', inplace=True)
-#                 st.table(stats.iloc[33:35,])
-         
-         
-                
-#          st.subheader("Income Statement")
-         
-#          if ticker != '-':
-#                 stats = getstats(ticker)
-#                 stats['Value'] = stats['Value'].astype(str)
-#                 stats.set_index('Attribute', inplace=True)
-#                 st.table(stats.iloc[35:43,])  
-            
-         
-#          st.subheader("Balance Sheet")
-         
-#          if ticker != '-':
-#                 stats = getstats(ticker)
-#                 stats['Value'] = stats['Value'].astype(str)
-#                 stats.set_index('Attribute', inplace=True)
-#                 st.table(stats.iloc[43:49,])
-         
-#          st.subheader("Cash Flow Statement")
-         
-#          if ticker != '-':
-#                 stats = getstats(ticker)
-#                 stats['Value'] = stats['Value'].astype(str)
-#                 stats.set_index('Attribute', inplace=True)
-#                 st.table(stats.iloc[49:,])
-         
-        
-                           
-#      with c2:
-#          st.header("Trading Information")
-         
-         
-#          st.subheader("Stock Price History")
-                  
-#          if ticker != '-':
-#                 stats = getstats(ticker)
-#                 stats['Value'] = stats['Value'].astype(str)
-#                 stats.set_index('Attribute', inplace=True)
-#                 st.table(stats.iloc[:7,])
-         
-#          st.subheader("Share Statistics")
-                  
-#          if ticker != '-':
-#                 stats = getstats(ticker)
-#                 stats['Value'] = stats['Value'].astype(str)
-#                 stats.set_index('Attribute', inplace=True)
-#                 st.table(stats.iloc[7:19,])
-         
-#          st.subheader("Dividends & Splits")
-                  
-#          if ticker != '-':
-#                 stats = getstats(ticker)
-#                 stats['Value'] = stats['Value'].astype(str)
-#                 stats.set_index('Attribute', inplace=True)
-#                 st.table(stats.iloc[19:29,])
-
 
 def tab3():
     st.title("Statistics")
@@ -641,65 +431,6 @@ def tab3():
 #The code below obtains yearly and quartely financial statements from Yahoo Finance
 #and displays them according the options selected by the users in streamlit. A
 #combination of if statements is used to display according to the selected options.
-
-
-# def tab4():
-#       st.title("Financials")
-#       st.write(ticker)
-      
-#       statement = st.selectbox("Show", ['Income Statement', 'Balance Sheet', 'Cash Flow'])
-#       period = st.selectbox("Period", ['Yearly', 'Quarterly'])
-      
-#       @st.cache_data
-#       def getyearlyincomestatement(ticker):
-#             return si.get_income_statement(ticker)
-      
-#       @st.cache_data
-#       def getquarterlyincomestatement(ticker):
-#             return si.get_income_statement(ticker, yearly = False)
-      
-#       @st.cache_data
-#       def getyearlybalancesheet(ticker):
-#             return si.get_balance_sheet(ticker)
-      
-#       @st.cache_data
-#       def getquarterlybalancesheet(ticker):
-#             return si.get_balance_sheet(ticker, yearly = False)      
-
-#       @st.cache_data
-#       def getyearlycashflow(ticker):
-#             return si.get_cash_flow(ticker)
-      
-#       @st.cache_data
-#       def getquarterlycashflow(ticker):
-#             return si.get_cash_flow(ticker, yearly = False)
-        
-          
-#       if ticker != '-' and statement == 'Income Statement' and period == 'Yearly':
-#                 data = getyearlyincomestatement(ticker)
-#                 st.table(data)
-            
-#       if ticker != '-' and statement == 'Income Statement' and period == 'Quarterly':
-#                 data = getquarterlyincomestatement(ticker)
-#                 st.table(data)            
-
-#       if ticker != '-' and statement == 'Balance Sheet' and period == 'Yearly':
-#                 data = getyearlybalancesheet(ticker)
-#                 st.table(data)            
-      
-#       if ticker != '-' and statement == 'Balance Sheet' and period == 'Quarterly':
-#                 data = getquarterlybalancesheet(ticker)
-#                 st.table(data)        
-      
-#       if ticker != '-' and statement == 'Cash Flow' and period == 'Yearly':
-#                 data = getyearlycashflow(ticker)
-#                 st.table(data)        
-      
-        
-#       if ticker != '-' and statement == 'Cash Flow' and period == 'Quarterly':
-#                 data = getquarterlycashflow(ticker)
-#                 st.table(data)      
-                
                 
 def tab4():
     import yfinance as yf
@@ -753,49 +484,6 @@ def tab4():
 #and then a for loop i used under which the dictionary items are changed into a list
 # and each element of the list is then converted to a dataframe for displaying.
 
-
-# def tab5():
-#       st.title("Analysis")
-#       st.write("Currency in USD")
-#       st.write(ticker)
-      
-#       @st.cache_data
-#       def getanalysis(ticker):
-#             analysis_dict = si.get_analysts_info(ticker)
-#             return analysis_dict.items()
- 
-           
-#       if ticker != '-':           
-#            for i in range(6):
-#             analysis = getanalysis(ticker)
-#             df = pd.DataFrame(list(analysis)[i][1])
-#             st.table(df)
-
-
-# def tab5():
-#     st.title("Analysis")
-#     st.write("Currency in USD")
-#     st.write(ticker)
-    
-#     if ticker != '-':
-#         stock = yf.Ticker(ticker)
-        
-#         st.subheader("Analyst Recommendations")
-#         try:
-#             rec = stock.recommendations
-#             if rec is not None:
-#                 st.dataframe(rec.tail(10))
-#             else:
-#                 st.write("Analyst data not available.")
-#         except:
-#             st.write("Analyst data not available.")
-import streamlit as st
-import pandas as pd
-import time  # <--- thêm dòng này
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-
 def tab5():
     st.title("Analysis")
     st.write("Currency in USD")
@@ -843,109 +531,6 @@ def tab5():
 
 #The code below performs and displays the monte carlo simulation for a specified
 #time horizon and number of intervals
-
-
-
-# def tab6():
-#      st.title("Monte Carlo Simulation")
-#      st.write(ticker)
-     
-#      #Dropdown for selecting simulation and horizon
-#      simulations = st.selectbox("Number of Simulations (n)", [200, 500, 1000])
-#      time_horizon = st.selectbox("Time Horizon (t)", [30, 60, 90])
-     
-#      #The code below takes past 30 day data using get_data. Then it gets the close
-#      #price column and uses .pct_change() to get the daily return. Daily volatility 
-#      #is then calculated as the standard deviation of the daily return.
-#      @st.cache_data
-#      def montecarlo(ticker, time_horizon, simulations):
-     
-#          end_date = datetime.now().date()
-#          start_date = end_date - timedelta(days=30)
-     
-#          stock_price = si.get_data(ticker, start_date, end_date)
-#          close_price = stock_price['close']
-     
-     
-#          daily_return = close_price.pct_change()
-#          daily_volatility = np.std(daily_return)
-     
-#          #Initialize the simulation dataframe    
-#          simulation_df = pd.DataFrame()
-     
-#          for i in range(simulations):        
-                      
-#                 # The list to store the next stock price
-#                 next_price = []
-    
-#     #    Create the next stock price
-#                 last_price = close_price[-1]
-    
-#                 for x in range(time_horizon):
-                               
-#                       # Generate the random percentage change around the mean (0) and std (daily_volatility)
-#                       future_return = np.random.normal(0, daily_volatility)
-
-#             # Generate the random future price
-#                       future_price = last_price * (1 + future_return)
-
-#             # Save the price and go next
-#                       next_price.append(future_price)
-#                       last_price = future_price
-    
-#     #    Store the result of the simulation
-#                 simulation_df[i] = next_price
-                
-#          return simulation_df   
-          
-# #The code below plots the monte carlo simulation using maplotlib. It also calculates
-# #variance at risk and displays it. the VAR is calculated using the last row of
-# #the montecarlo simulation. the distribution of this ending price is displaued and
-# #the 5th percentile of the distribution is marked
-
-
-#      if ticker != '-':
-#          mc = montecarlo(ticker, time_horizon, simulations)
-                  
-#          end_date = datetime.now().date()
-#          start_date = end_date - timedelta(days=30)
-         
-#          stock_price = si.get_data(ticker, start_date, end_date)
-#          close_price = stock_price['close']
-         
-#          fig, ax = plt.subplots(figsize=(15, 10))
-         
-
-#          ax.plot(mc)
-#          plt.title('Monte Carlo simulation for ' + str(ticker) + ' stock price in next ' + str(time_horizon) + ' days')
-#          plt.xlabel('Day')
-#          plt.ylabel('Price')
-         
-         
-#          plt.axhline(y= close_price[-1], color ='red')
-#          plt.legend(['Current stock price is: ' + str(np.round(close_price[-1], 2))])
-#          ax.get_legend().legendHandles[0].set_color('red')
-
-#          st.pyplot(fig)
-         
-#          # Value at Risk
-#          st.subheader('Value at Risk (VaR)')
-#          ending_price = mc.iloc[-1:, :].values[0, ]
-#          fig1, ax = plt.subplots(figsize=(15, 10))
-#          ax.hist(ending_price, bins=50)
-#          plt.axvline(np.percentile(ending_price, 5), color='red', linestyle='--', linewidth=1)
-#          plt.legend(['5th Percentile of the Future Price: ' + str(np.round(np.percentile(ending_price, 5), 2))])
-#          plt.title('Distribution of the Ending Price')
-#          plt.xlabel('Price')
-#          plt.ylabel('Frequency')
-#          st.pyplot(fig1)
-         
-         
-#          future_price_95ci = np.percentile(ending_price, 5)
-#          # Value at Risk
-#          VaR = close_price[-1] - future_price_95ci
-#          st.write('VaR at 95% confidence interval is: ' + str(np.round(VaR, 2)) + ' USD')
-         
          
 
 def tab6():
@@ -984,6 +569,11 @@ def tab6():
         
         return simulation_df, close_price[-1]
 
+    #The code below plots the monte carlo simulation using maplotlib. It also calculates
+    #variance at risk and displays it. the VAR is calculated using the last row of
+    #the montecarlo simulation. the distribution of this ending price is displaued and
+    #the 5th percentile of the distribution is marked
+
     if ticker != '-':
         result = montecarlo_yf(ticker, time_horizon, simulations)
         if result is None:
@@ -1002,7 +592,7 @@ def tab6():
         st.pyplot(fig)
 
         # Value at Risk (VaR)
-        st.subheader("Value at Risk (VaR) at 95% confidence")
+        st.subheader("Value at Risk (VaR)")
         ending_prices = mc.iloc[-1, :].values
         fig2, ax2 = plt.subplots(figsize=(12, 6))
         ax2.hist(ending_prices, bins=50)
@@ -1031,37 +621,41 @@ def tab6():
 
 
 def tab7():
-    import re
     st.title("Your Portfolio's Trend")
-    global ticker
 
-    # Kiểm tra ticker hiện tại có hợp lệ (CODE.VN)
-    def _is_vn_symbol(s: str) -> bool:
-        return bool(isinstance(s, str) and re.fullmatch(r"[A-Z]{2,5}\.VN", s))
+    @st.cache_data
+    def get_sp500_tickers():
+        import requests
+        import pandas as pd
 
-    # 🔁 Tái sử dụng hàm get_vn30_yahoo_symbols đã có trong file
-    try:
-        vn30_symbols = get_vn30_yahoo_symbols()
-    except Exception as e:
-        st.error(f"Lỗi khi lấy danh sách VN30: {e}")
-        vn30_symbols = []
+        url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
+        headers = {"User-Agent": "Mozilla/5.0"}
+        html = requests.get(url, headers=headers).text
 
-    # Default = ticker chọn ở sidebar (nếu hợp lệ)
-    default_selection = [ticker] if _is_vn_symbol(ticker) else []
+        tables = pd.read_html(html)
 
-    # Multiselect danh mục VN30
+        for df in tables:
+            cols = [str(c).lower() for c in df.columns]
+            if "symbol" in cols:
+                symbol_col = df.columns[[ "symbol" in str(c).lower() for c in df.columns ]][0]
+                return df[symbol_col].tolist()
+
+        return []
+
+    sp500_tickers = get_sp500_tickers()
+
+    # Cho người dùng chọn ticker
     selected_tickers = st.multiselect(
-        "Select VN30 tickers in your portfolio",
-        options=vn30_symbols,
-        default=default_selection,
-        help="Chọn một hoặc nhiều mã trong VN30 để xem biến động danh mục."
+        "Select tickers in your portfolio",
+        options=sp500_tickers,
+        default=["AAPL"]
     )
 
-    # Nếu không chọn gì → để trống, không cảnh báo
     if not selected_tickers:
+        st.warning("Please select at least one ticker.")
         return
 
-    # Lấy dữ liệu giá đóng cửa cho từng ticker
+    # Lấy dữ liệu đóng cửa cho từng ticker
     df = pd.DataFrame()
     for t in selected_tickers:
         try:
@@ -1071,32 +665,10 @@ def tab7():
             st.error(f"Error downloading {t}: {e}")
 
     if not df.empty:
-        # Làm sạch & đồng bộ
-        df = df.sort_index()
-        df = df.loc[:, ~df.columns.duplicated()]      # bỏ cột trùng
-        df = df.dropna(how="all")                      # bỏ hàng toàn NaN
-        df = df[[c for c in df.columns if df[c].notna().sum() > 0]]  # chỉ giữ cột có dữ liệu
-
-        # Chuyển sang long-form để vẽ chắc chắn đúng
-        df_long = (
-            df.reset_index()
-            .rename(columns={"index": "Date"})
-            .melt(id_vars="Date", var_name="Ticker", value_name="Price")
-            .dropna(subset=["Price"])
-        )
-
-        # Vẽ
-        fig = px.line(
-            df_long,
-            x="Date",
-            y="Price",
-            color="Ticker",
-            labels={"Date": "Date", "Price": "Price"}
-        )
-        st.plotly_chart(fig, use_container_width=True)
+        fig = px.line(df, labels={'value':'Price', 'index':'Date'})
+        st.plotly_chart(fig)
     else:
         st.warning("No data available for selected tickers.")
-
       
         
     
@@ -1106,61 +678,12 @@ def tab7():
 # Main body
 #==============================================================================
 
-    # --- Lấy danh sách VN30 dạng Yahoo symbol (.VN) ---
-@st.cache_data(show_spinner=False, ttl=3600)
-def get_vn30_yahoo_symbols(max_items: int = 30):
-    import re, requests
-    from bs4 import BeautifulSoup
-
-    url = "https://vn.tradingview.com/symbols/HOSE-VN30/components/"
-    headers = {
-          "User-Agent": "Mozilla/5.0",
-          "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8",
-   }
-
-    try:
-        html = requests.get(url, headers=headers, timeout=12).text
-    except Exception:
-        html = ""
-
-    # Ưu tiên bắt qua pattern URL của TradingView
-    codes = list(dict.fromkeys(re.findall(r'/symbols/HOSE-([A-Z]{2,5})/', html)))
-
-    # Bổ sung từ text nếu thiếu
-    if len(codes) < 30 and html:
-        soup = BeautifulSoup(html, "html.parser")
-        for a in soup.find_all("a"):
-            t = (a.get_text() or "").strip().upper()
-            if re.fullmatch(r"[A-Z]{2,5}", t) and t not in codes:
-                codes.append(t)
-            if len(codes) >= max_items:
-                break
-
-    # Fallback tĩnh nếu mạng lỗi
-    if len(codes) < 10:
-        codes = [
-            "VIC","VHM","VRE","VNM","VCB","BID","CTG","TCB","VPB","MBB",
-            "FPT","GAS","HPG","MSN","MWG","HDB","STB","SSI","PLX","BVH",
-            "SAB","GVR","VJC","PNJ","VIB","TPB","ACB","LPB","SHB","BCM",
-        ]
-
-    final_codes = [f"{c}.VN" for c in codes[:max_items]]
-
-    # In ra terminal để kiểm tra trạng thái
-    if len(codes) >= 10:
-        print(f"[VN30] ✅ Lấy thành công {len(final_codes)} mã từ web TradingView.")
-    else:
-        print(f"[VN30] ⚠️ Dùng fallback tĩnh ({len(final_codes)} mã).")
-    print("Danh sách VN30 symbols:", final_codes)
-    return final_codes
-        
 def run():
     import requests
     import pandas as pd
     from io import StringIO
 
-
-    # Hàm thay thế si.tickers_sp500() để tránh lỗi 403
+    # Hàm thay thế si.tickers_sp500()
     def get_sp500_tickers():
         url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
         headers = {"User-Agent": "Mozilla/5.0"}
@@ -1179,27 +702,14 @@ def run():
 
         # ✅ nếu không tìm được bảng phù hợp
         raise ValueError("Không tìm được bảng S&P500 hoặc cột Symbol trong Wikipedia.")
-    
 
-    # --- Tạo danh sách hiển thị ở sidebar (KHÔNG đổi UI Tab 1) ---
-    ticker_list = ["-"] + get_vn30_yahoo_symbols()
-    # Giữ lựa chọn hợp lệ gần nhất để tránh rớt về '-'
-    if "last_valid_ticker" not in st.session_state:
-        st.session_state.last_valid_ticker = "-"
 
+    # Lấy danh sách ticker
+    ticker_list = ['-'] + get_sp500_tickers()
+
+    # Add selection box
     global ticker
-    ticker = st.sidebar.selectbox("Select a ticker", ticker_list, key="ticker_select")
-
-    import re as _re
-    def _is_vn_symbol(s: str) -> bool:
-        return bool(isinstance(s, str) and _re.fullmatch(r"[A-Z]{2,5}\.VN", s))
-
-    if _is_vn_symbol(ticker) and ticker != "-":
-        st.session_state.last_valid_ticker = ticker
-    elif st.session_state.last_valid_ticker in ticker_list:
-        ticker = st.session_state.last_valid_ticker
-
-
+    ticker = st.sidebar.selectbox("Select a ticker", ticker_list)
 
     # Add a radio box
     select_tab = st.sidebar.radio(
