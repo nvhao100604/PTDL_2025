@@ -1,0 +1,3271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-11-28">
+    <creator>NetworkX 3.2.1</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="0" title="Weight" type="long" />
+    </attributes>
+    <nodes>
+      <node id="Theanh28" label="Theanh28" />
+      <node id="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" label="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" />
+      <node id="kenh28.Entertainment" label="kenh28.Entertainment" />
+      <node id="thanh.trinh.976554" label="thanh.trinh.976554" />
+      <node id="viet.thang.770983" label="viet.thang.770983" />
+      <node id="copcondidom" label="copcondidom" />
+      <node id="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" label="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" />
+      <node id="nt.thuongg.769949" label="nt.thuongg.769949" />
+      <node id="manocanhbupbe" label="manocanhbupbe" />
+      <node id="nguyen.van.dung.273197" label="nguyen.van.dung.273197" />
+      <node id="toa.kim.7161" label="toa.kim.7161" />
+      <node id="khanhnguyen.baoan" label="khanhnguyen.baoan" />
+      <node id="lyly.ib98" label="lyly.ib98" />
+      <node id="lenam.kute.7" label="lenam.kute.7" />
+      <node id="timtan.tamtan" label="timtan.tamtan" />
+      <node id="khanh.linh.491096" label="khanh.linh.491096" />
+      <node id="ngothu.hoa" label="ngothu.hoa" />
+      <node id="nhun.nhun.39904" label="nhun.nhun.39904" />
+      <node id="trinh.son.313" label="trinh.son.313" />
+      <node id="lonh.bao.35" label="lonh.bao.35" />
+      <node id="nhu.thao.3114" label="nhu.thao.3114" />
+      <node id="kieu.enny.2025" label="kieu.enny.2025" />
+      <node id="Chinggchichchot" label="Chinggchichchot" />
+      <node id="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" label="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" />
+      <node id="catthao.trieu" label="catthao.trieu" />
+      <node id="thuylinh.dinh.758" label="thuylinh.dinh.758" />
+      <node id="th.cuong.sport" label="th.cuong.sport" />
+      <node id="thu.thuhuong" label="thu.thuhuong" />
+      <node id="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" label="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" />
+      <node id="Rah.Lanmin1996" label="Rah.Lanmin1996" />
+      <node id="sgvn.hello" label="sgvn.hello" />
+      <node id="TrangAutumn" label="TrangAutumn" />
+      <node id="truc.tho.35" label="truc.tho.35" />
+      <node id="phuong.phuong.532586" label="phuong.phuong.532586" />
+      <node id="trinh.thanh.tam.382693" label="trinh.thanh.tam.382693" />
+      <node id="my.luantra.71" label="my.luantra.71" />
+      <node id="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" label="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" />
+      <node id="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" label="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" />
+      <node id="vuongcamha.sum" label="vuongcamha.sum" />
+      <node id="nguyen.nga.680148" label="nguyen.nga.680148" />
+      <node id="ong.su.nu.cuoi" label="ong.su.nu.cuoi" />
+      <node id="minhhoang1997hy" label="minhhoang1997hy" />
+      <node id="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" label="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" />
+      <node id="phuong.thao.468099" label="phuong.thao.468099" />
+      <node id="Phatngoc.199121" label="Phatngoc.199121" />
+      <node id="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" label="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" />
+      <node id="hellen.pham.709493" label="hellen.pham.709493" />
+      <node id="VoHoangLinh.2209" label="VoHoangLinh.2209" />
+      <node id="luong.nhung.1991" label="luong.nhung.1991" />
+      <node id="haiquan2604" label="haiquan2604" />
+      <node id="duc.ledinh.507" label="duc.ledinh.507" />
+      <node id="peopleNhi-Nhipfbid04rF2aL9UiJqBZW9NdAEBqiLXbVbKdQD4gFEGgBNKsy7LWqMCf1ko8cqhb6DzKstHl" label="peopleNhi-Nhipfbid04rF2aL9UiJqBZW9NdAEBqiLXbVbKdQD4gFEGgBNKsy7LWqMCf1ko8cqhb6DzKstHl" />
+      <node id="pinkybongbong" label="pinkybongbong" />
+      <node id="ainguyen1191" label="ainguyen1191" />
+      <node id="tran.ngoc.anh.463941" label="tran.ngoc.anh.463941" />
+      <node id="meoluoi.ngungay.94" label="meoluoi.ngungay.94" />
+      <node id="tuong.tuong.7002" label="tuong.tuong.7002" />
+      <node id="nku.y74" label="nku.y74" />
+      <node id="le.xuan.yen.28179" label="le.xuan.yen.28179" />
+      <node id="hue.vu.625480" label="hue.vu.625480" />
+      <node id="thu.dai.362632" label="thu.dai.362632" />
+      <node id="yen.phan.51495" label="yen.phan.51495" />
+      <node id="linh.thuy.548305" label="linh.thuy.548305" />
+      <node id="Truongdepzaii68" label="Truongdepzaii68" />
+      <node id="trang.le.401505" label="trang.le.401505" />
+      <node id="hai.buixuan.752" label="hai.buixuan.752" />
+      <node id="dury.diewnhii" label="dury.diewnhii" />
+      <node id="thuy.nho.94" label="thuy.nho.94" />
+      <node id="dani.trinh.5" label="dani.trinh.5" />
+      <node id="lam.lee.52687506" label="lam.lee.52687506" />
+      <node id="munnhi.99" label="munnhi.99" />
+      <node id="thuong.an.ha.26480" label="thuong.an.ha.26480" />
+      <node id="khuyen.huyen.2024" label="khuyen.huyen.2024" />
+      <node id="phuongthe19021997" label="phuongthe19021997" />
+      <node id="peopleKim-M%E1%BB%B9-T%C3%A0i100045589477859" label="peopleKim-M%E1%BB%B9-T%C3%A0i100045589477859" />
+      <node id="dung.nguyen.549730" label="dung.nguyen.549730" />
+      <node id="thao.tay.360057" label="thao.tay.360057" />
+      <node id="guyguymua" label="guyguymua" />
+      <node id="Thitrung.nguyen22" label="Thitrung.nguyen22" />
+      <node id="vi.phuong.7982" label="vi.phuong.7982" />
+      <node id="linh.giang.849869" label="linh.giang.849869" />
+      <node id="hao.komakai.okane" label="hao.komakai.okane" />
+      <node id="linhkeyy01062002" label="linhkeyy01062002" />
+      <node id="khanh.ly.166030" label="khanh.ly.166030" />
+      <node id="trang.cot.752" label="trang.cot.752" />
+      <node id="chibeautifulgirl" label="chibeautifulgirl" />
+      <node id="nguyen.huong.808553" label="nguyen.huong.808553" />
+      <node id="ngothitra0407" label="ngothitra0407" />
+      <node id="ngo.mai.405177" label="ngo.mai.405177" />
+      <node id="minh.huong.851153" label="minh.huong.851153" />
+      <node id="dinhstore.net" label="dinhstore.net" />
+      <node id="pham.hoa.423515" label="pham.hoa.423515" />
+      <node id="diemha2001" label="diemha2001" />
+      <node id="hongtuoi.vovo" label="hongtuoi.vovo" />
+      <node id="maianh.luu.1257" label="maianh.luu.1257" />
+      <node id="cam.tam.165826" label="cam.tam.165826" />
+      <node id="min.jeonji" label="min.jeonji" />
+      <node id="hoai.luong.754544" label="hoai.luong.754544" />
+      <node id="hanna.mins.9" label="hanna.mins.9" />
+      <node id="phuong.namm.672285" label="phuong.namm.672285" />
+      <node id="nguyen.hoa.748345" label="nguyen.hoa.748345" />
+      <node id="linh.nguyen.90494" label="linh.nguyen.90494" />
+      <node id="nha.truong.902" label="nha.truong.902" />
+      <node id="pham.bon.3" label="pham.bon.3" />
+      <node id="alexngwangle" label="alexngwangle" />
+      <node id="dungdo223" label="dungdo223" />
+      <node id="xuan.tranle.12" label="xuan.tranle.12" />
+      <node id="zee.kho.52" label="zee.kho.52" />
+      <node id="lim.zara.1" label="lim.zara.1" />
+      <node id="cong.nguyen.7127" label="cong.nguyen.7127" />
+      <node id="trieu.hoang.yen.262888" label="trieu.hoang.yen.262888" />
+      <node id="mai.linh.413930" label="mai.linh.413930" />
+      <node id="bass.loc.9" label="bass.loc.9" />
+      <node id="dung.phi.986" label="dung.phi.986" />
+      <node id="camha1512" label="camha1512" />
+      <node id="xoan.mai.754918" label="xoan.mai.754918" />
+      <node id="quynhchau.cao.7" label="quynhchau.cao.7" />
+      <node id="thuyduongdo2392" label="thuyduongdo2392" />
+      <node id="nguyen.hoang.quynh.phuong.2024" label="nguyen.hoang.quynh.phuong.2024" />
+      <node id="toan.le.77377" label="toan.le.77377" />
+      <node id="nguyen.thang.947613" label="nguyen.thang.947613" />
+      <node id="loan.xinh.604087" label="loan.xinh.604087" />
+      <node id="datkhanh.ngahung" label="datkhanh.ngahung" />
+      <node id="Nguyenhuonghaugiang" label="Nguyenhuonghaugiang" />
+      <node id="thuyen.kim.33234" label="thuyen.kim.33234" />
+      <node id="pham.phuonganh.858165" label="pham.phuonganh.858165" />
+      <node id="hamay3103" label="hamay3103" />
+      <node id="vu.thi.van.80258" label="vu.thi.van.80258" />
+      <node id="ngoc.vang021096" label="ngoc.vang021096" />
+      <node id="man.nhi.628577" label="man.nhi.628577" />
+      <node id="minhanhluong99" label="minhanhluong99" />
+      <node id="nguyenthihongngoc.15.02" label="nguyenthihongngoc.15.02" />
+      <node id="nguyen.manh.hung.890340" label="nguyen.manh.hung.890340" />
+      <node id="rose.lisa.370515" label="rose.lisa.370515" />
+      <node id="trungthanh.phuyen" label="trungthanh.phuyen" />
+      <node id="huutin.le.923" label="huutin.le.923" />
+      <node id="buitrungkmx" label="buitrungkmx" />
+      <node id="MANTALFahion" label="MANTALFahion" />
+      <node id="hien.tee.392490" label="hien.tee.392490" />
+      <node id="nguyen.huong.512322" label="nguyen.huong.512322" />
+      <node id="tran.ang.quan.91833" label="tran.ang.quan.91833" />
+      <node id="nguyen.thi.quyet.77552" label="nguyen.thi.quyet.77552" />
+      <node id="peopleL%C3%AA-N-%C3%81nhpfbid02i5yrtJXSZN5tgiDzAWnB7ikiFJHRYkbfTcqZPtaxzPY9mk7FwwyQigiUc3a8NLBFl" label="peopleL%C3%AA-N-%C3%81nhpfbid02i5yrtJXSZN5tgiDzAWnB7ikiFJHRYkbfTcqZPtaxzPY9mk7FwwyQigiUc3a8NLBFl" />
+      <node id="khanhgiaost" label="khanhgiaost" />
+      <node id="Core.ThuTran" label="Core.ThuTran" />
+      <node id="nghia.le.870772" label="nghia.le.870772" />
+      <node id="meownabi016" label="meownabi016" />
+      <node id="peopleNh%E1%BA%A5t-Huypfbid02pf1qVQo7eCpuHeL9y8eNR1nzQkcqWEU6LwK22WdExBEkNSbGXeZhD99izWyjYzcKl" label="peopleNh%E1%BA%A5t-Huypfbid02pf1qVQo7eCpuHeL9y8eNR1nzQkcqWEU6LwK22WdExBEkNSbGXeZhD99izWyjYzcKl" />
+      <node id="thanhtiep.phung" label="thanhtiep.phung" />
+      <node id="viettrinh0901" label="viettrinh0901" />
+      <node id="nguyen.nguyen.thi.phuong.273459" label="nguyen.nguyen.thi.phuong.273459" />
+      <node id="dohonghao1" label="dohonghao1" />
+      <node id="linh.saku.3" label="linh.saku.3" />
+      <node id="khiem.gia.253901" label="khiem.gia.253901" />
+      <node id="truc.linh.997455" label="truc.linh.997455" />
+      <node id="henniexinhieu" label="henniexinhieu" />
+      <node id="hong.pink.9" label="hong.pink.9" />
+      <node id="nhim.xynkngo" label="nhim.xynkngo" />
+      <node id="tran.huyen.398670" label="tran.huyen.398670" />
+      <node id="bui.van.anh.310346" label="bui.van.anh.310346" />
+      <node id="tran.hanh.271327" label="tran.hanh.271327" />
+      <node id="tranhai92.mc" label="tranhai92.mc" />
+      <node id="trinh.lien.52" label="trinh.lien.52" />
+      <node id="chinh.535003" label="chinh.535003" />
+      <node id="trinh.phuong.9026" label="trinh.phuong.9026" />
+      <node id="anvatvamuasam.2024" label="anvatvamuasam.2024" />
+      <node id="nhung.mun.523753" label="nhung.mun.523753" />
+      <node id="hoa.duong.493446" label="hoa.duong.493446" />
+      <node id="myhuyen.len.7" label="myhuyen.len.7" />
+      <node id="thuy.nhan.895028" label="thuy.nhan.895028" />
+      <node id="anperfexx2212" label="anperfexx2212" />
+      <node id="pe.an.75098" label="pe.an.75098" />
+      <node id="duoc.sy.tran.oanh" label="duoc.sy.tran.oanh" />
+      <node id="huongleo.2k" label="huongleo.2k" />
+      <node id="dung.hoang.960607" label="dung.hoang.960607" />
+      <node id="heos.huong.1217" label="heos.huong.1217" />
+      <node id="buonnhungkovui" label="buonnhungkovui" />
+      <node id="inhthikimphuong.8107" label="inhthikimphuong.8107" />
+      <node id="khanh.huong28" label="khanh.huong28" />
+      <node id="kem.quynh.963" label="kem.quynh.963" />
+      <node id="suong.buta" label="suong.buta" />
+      <node id="amnhianh" label="amnhianh" />
+      <node id="votuong1985" label="votuong1985" />
+      <node id="lantran.LT88" label="lantran.LT88" />
+      <node id="nguyen.ngoc.anh.251003" label="nguyen.ngoc.anh.251003" />
+      <node id="thuyen.le.3" label="thuyen.le.3" />
+      <node id="nhan.be.3745" label="nhan.be.3745" />
+      <node id="kuutuoffcial" label="kuutuoffcial" />
+      <node id="peopleMinh-Ch%C3%A2u100025887886325" label="peopleMinh-Ch%C3%A2u100025887886325" />
+      <node id="vy.kieu.3766" label="vy.kieu.3766" />
+      <node id="peopleHo%C3%A0ng-An100095183244745" label="peopleHo%C3%A0ng-An100095183244745" />
+      <node id="tu.quynh.902811" label="tu.quynh.902811" />
+      <node id="ngockim0801" label="ngockim0801" />
+      <node id="tran.ngoc.mai.352641" label="tran.ngoc.mai.352641" />
+      <node id="luu.quynh.thu.2024" label="luu.quynh.thu.2024" />
+      <node id="tuan.nheo.235688" label="tuan.nheo.235688" />
+      <node id="thedat37201901" label="thedat37201901" />
+      <node id="hong.nhung.762692" label="hong.nhung.762692" />
+      <node id="H.C.T.AAAAAAAAAAAAAAAAAAAAAAAA" label="H.C.T.AAAAAAAAAAAAAAAAAAAAAAAA" />
+      <node id="ngocsinh.pham.71" label="ngocsinh.pham.71" />
+      <node id="anghoan.931569" label="anghoan.931569" />
+      <node id="hau.280705" label="hau.280705" />
+      <node id="vetthuong.vohinh.180" label="vetthuong.vohinh.180" />
+      <node id="nguyen.thanh.ky.899949" label="nguyen.thanh.ky.899949" />
+      <node id="Ebisu207" label="Ebisu207" />
+      <node id="anh.ngoc.329932" label="anh.ngoc.329932" />
+      <node id="linh.lieu.1048" label="linh.lieu.1048" />
+      <node id="TucYenDuongTrung" label="TucYenDuongTrung" />
+      <node id="huong.huyen.708256" label="huong.huyen.708256" />
+      <node id="hanh.hoangthi.75098364" label="hanh.hoangthi.75098364" />
+      <node id="thao.nguyen.815786" label="thao.nguyen.815786" />
+      <node id="lovebbbtth" label="lovebbbtth" />
+      <node id="hoang.ngoc.quyen.316968" label="hoang.ngoc.quyen.316968" />
+      <node id="NGUYENTOTAM" label="NGUYENTOTAM" />
+      <node id="quang.minh.681610" label="quang.minh.681610" />
+      <node id="khenh.200299" label="khenh.200299" />
+      <node id="YourSoulBelongsToMe" label="YourSoulBelongsToMe" />
+      <node id="phuong.han.2709" label="phuong.han.2709" />
+      <node id="le.be.304526" label="le.be.304526" />
+      <node id="pham.minhan.9083" label="pham.minhan.9083" />
+      <node id="dung.trai.12" label="dung.trai.12" />
+      <node id="ha.hien.952772" label="ha.hien.952772" />
+      <node id="anh.truc.dang.2024" label="anh.truc.dang.2024" />
+      <node id="tieungunhi.1906" label="tieungunhi.1906" />
+      <node id="minh.truong.649548" label="minh.truong.649548" />
+      <node id="songtu.cauba" label="songtu.cauba" />
+      <node id="nhu.ngoc.553037" label="nhu.ngoc.553037" />
+      <node id="hoang.thi.minh.lan" label="hoang.thi.minh.lan" />
+      <node id="ngocanh2642462" label="ngocanh2642462" />
+      <node id="trang.anh.50600" label="trang.anh.50600" />
+      <node id="chuots.vu.3" label="chuots.vu.3" />
+      <node id="ann.le.551014" label="ann.le.551014" />
+      <node id="phuong.chi.oan" label="phuong.chi.oan" />
+      <node id="thaouyen.nguyen.12139862" label="thaouyen.nguyen.12139862" />
+      <node id="an.leba.56884" label="an.leba.56884" />
+      <node id="ly.ngoc.bich.phuong" label="ly.ngoc.bich.phuong" />
+      <node id="trang.xinh.58323" label="trang.xinh.58323" />
+      <node id="hangpham.070" label="hangpham.070" />
+      <node id="caodung1990" label="caodung1990" />
+      <node id="bui.van.hau.416861" label="bui.van.hau.416861" />
+      <node id="nguyen.hao.23140" label="nguyen.hao.23140" />
+      <node id="lequangvinh20" label="lequangvinh20" />
+      <node id="bui.minh.phuong.292579" label="bui.minh.phuong.292579" />
+      <node id="le.hang.399041" label="le.hang.399041" />
+      <node id="anhtungpham.97" label="anhtungpham.97" />
+      <node id="vnhy2601" label="vnhy2601" />
+      <node id="trung.tranhoang.73" label="trung.tranhoang.73" />
+      <node id="trang.quan.56" label="trang.quan.56" />
+      <node id="minh.trang.257292" label="minh.trang.257292" />
+      <node id="nga.nguyen.528055" label="nga.nguyen.528055" />
+      <node id="thuy.tien.704702" label="thuy.tien.704702" />
+      <node id="trung.tran.573510" label="trung.tran.573510" />
+      <node id="hankieudiem" label="hankieudiem" />
+      <node id="hang.ang.690157" label="hang.ang.690157" />
+      <node id="hai.yen.712008" label="hai.yen.712008" />
+      <node id="lovanthieu1891996" label="lovanthieu1891996" />
+      <node id="tranthanhhai1508" label="tranthanhhai1508" />
+      <node id="hhgiang.31" label="hhgiang.31" />
+      <node id="cay.nho.5" label="cay.nho.5" />
+      <node id="thu.ha.699799" label="thu.ha.699799" />
+      <node id="van.bom.77" label="van.bom.77" />
+      <node id="phuong.38490" label="phuong.38490" />
+      <node id="anh.nguyen.130888" label="anh.nguyen.130888" />
+      <node id="dino.long.104" label="dino.long.104" />
+      <node id="nguyen.daisy.984991" label="nguyen.daisy.984991" />
+      <node id="Lazycat.s2ck" label="Lazycat.s2ck" />
+      <node id="ha.lee1803" label="ha.lee1803" />
+      <node id="tsankhin" label="tsankhin" />
+      <node id="hien.thanh.54379" label="hien.thanh.54379" />
+      <node id="ruanyuemei2611" label="ruanyuemei2611" />
+      <node id="cuc.phuong.417545" label="cuc.phuong.417545" />
+      <node id="le.ang.minh.thu.143610" label="le.ang.minh.thu.143610" />
+      <node id="pham.thi.hien.919157" label="pham.thi.hien.919157" />
+      <node id="kieu.nga.839060" label="kieu.nga.839060" />
+      <node id="lann.ems" label="lann.ems" />
+      <node id="dieulau.91" label="dieulau.91" />
+      <node id="thanh.dat.nguyen.482720" label="thanh.dat.nguyen.482720" />
+      <node id="linh.chi.877649" label="linh.chi.877649" />
+      <node id="ptc2812" label="ptc2812" />
+      <node id="linh97.leo" label="linh97.leo" />
+      <node id="ThanhTuan15689" label="ThanhTuan15689" />
+      <node id="hien.nguyen.44035" label="hien.nguyen.44035" />
+      <node id="kiu.chan.20" label="kiu.chan.20" />
+      <node id="phamductuyen.seven" label="phamductuyen.seven" />
+      <node id="hehe2323" label="hehe2323" />
+      <node id="nhu.vigro.3" label="nhu.vigro.3" />
+      <node id="ha.lai.39108" label="ha.lai.39108" />
+      <node id="gia.hue.63415" label="gia.hue.63415" />
+      <node id="trang.in.332" label="trang.in.332" />
+      <node id="ken.steven1" label="ken.steven1" />
+      <node id="tran.linh.889715" label="tran.linh.889715" />
+      <node id="NguyenNam288" label="NguyenNam288" />
+      <node id="nlplinh1612" label="nlplinh1612" />
+      <node id="tran.thanh.hang.566521" label="tran.thanh.hang.566521" />
+      <node id="maixuan.duong.395" label="maixuan.duong.395" />
+      <node id="charlie.teng.581" label="charlie.teng.581" />
+      <node id="tieu.long.465530" label="tieu.long.465530" />
+      <node id="huong.to.750" label="huong.to.750" />
+      <node id="nhung.nhun.490575" label="nhung.nhun.490575" />
+      <node id="bui.huyen.364289" label="bui.huyen.364289" />
+      <node id="hienn.hien.2507" label="hienn.hien.2507" />
+    </nodes>
+    <edges>
+      <edge source="Theanh28" target="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" id="0">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="kenh28.Entertainment" id="1">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="thanh.trinh.976554" id="2">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="viet.thang.770983" id="3">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="copcondidom" id="4">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" id="5">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="nt.thuongg.769949" id="6">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="manocanhbupbe" id="7">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="nguyen.van.dung.273197" id="8">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="toa.kim.7161" id="9">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="khanhnguyen.baoan" id="10">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="lyly.ib98" id="11">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="lenam.kute.7" id="12">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="timtan.tamtan" id="13">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="khanh.linh.491096" id="14">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="ngothu.hoa" id="15">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="nhun.nhun.39904" id="16">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="trinh.son.313" id="17">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="lonh.bao.35" id="18">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="kieu.enny.2025" id="19">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="catthao.trieu" id="20">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="thu.thuhuong" id="21">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" id="22">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" id="23">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="haiquan2604" id="24">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="thu.dai.362632" id="25">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="ngothitra0407" id="26">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="thuyen.kim.33234" id="27">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="peopleHo%C3%A0ng-An100095183244745" id="28">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="hau.280705" id="29">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28" target="tieungunhi.1906" id="30">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="kenh28.Entertainment" id="31">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="thanh.trinh.976554" id="32">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="viet.thang.770983" id="33">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="copcondidom" id="34">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" id="35">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="nt.thuongg.769949" id="36">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="manocanhbupbe" id="37">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="nguyen.van.dung.273197" id="38">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="toa.kim.7161" id="39">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="khanhnguyen.baoan" id="40">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="lyly.ib98" id="41">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="lenam.kute.7" id="42">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="timtan.tamtan" id="43">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="khanh.linh.491096" id="44">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="ngothu.hoa" id="45">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="nhun.nhun.39904" id="46">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="trinh.son.313" id="47">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="lonh.bao.35" id="48">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="thu.thuhuong" id="49">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" id="50">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="truc.tho.35" id="51">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="my.luantra.71" id="52">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="nguyen.nga.680148" id="53">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="ong.su.nu.cuoi" id="54">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="phuong.thao.468099" id="55">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="Phatngoc.199121" id="56">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="hellen.pham.709493" id="57">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="haiquan2604" id="58">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="thanhtiep.phung" id="59">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="henniexinhieu" id="60">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Theanh28postspfbid0GsfAboXM83LBEVSWWqLmrfqPjoWAFvhQG2SV5zBggduexjDfuJcmwsDq9xwAvWusl" target="trang.in.332" id="61">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="thanh.trinh.976554" id="62">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="viet.thang.770983" id="63">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="copcondidom" id="64">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" id="65">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="nt.thuongg.769949" id="66">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="manocanhbupbe" id="67">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="nguyen.van.dung.273197" id="68">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="toa.kim.7161" id="69">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="khanhnguyen.baoan" id="70">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="lyly.ib98" id="71">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="lenam.kute.7" id="72">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="timtan.tamtan" id="73">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="khanh.linh.491096" id="74">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="ngothu.hoa" id="75">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="nhun.nhun.39904" id="76">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="trinh.son.313" id="77">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="lonh.bao.35" id="78">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="kieu.enny.2025" id="79">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="Chinggchichchot" id="80">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="catthao.trieu" id="81">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="thuylinh.dinh.758" id="82">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="th.cuong.sport" id="83">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="sgvn.hello" id="84">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="trinh.thanh.tam.382693" id="85">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="vuongcamha.sum" id="86">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="Phatngoc.199121" id="87">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="luong.nhung.1991" id="88">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="diemha2001" id="89">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="nguyen.huong.512322" id="90">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="nhim.xynkngo" id="91">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="luu.quynh.thu.2024" id="92">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="anh.ngoc.329932" id="93">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="huong.huyen.708256" id="94">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="hehe2323" id="95">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kenh28.Entertainment" target="bui.huyen.364289" id="96">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="viet.thang.770983" id="97">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="copcondidom" id="98">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" id="99">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="nt.thuongg.769949" id="100">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="manocanhbupbe" id="101">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="nguyen.van.dung.273197" id="102">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="toa.kim.7161" id="103">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="khanhnguyen.baoan" id="104">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="lyly.ib98" id="105">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="lenam.kute.7" id="106">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="timtan.tamtan" id="107">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="khanh.linh.491096" id="108">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="ngothu.hoa" id="109">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="nhun.nhun.39904" id="110">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="trinh.son.313" id="111">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="lonh.bao.35" id="112">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="Rah.Lanmin1996" id="113">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="truc.tho.35" id="114">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="VoHoangLinh.2209" id="115">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="luong.nhung.1991" id="116">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="songtu.cauba" id="117">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="nhu.ngoc.553037" id="118">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="caodung1990" id="119">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="phamductuyen.seven" id="120">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thanh.trinh.976554" target="ken.steven1" id="121">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="copcondidom" id="122">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" id="123">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="nt.thuongg.769949" id="124">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="manocanhbupbe" id="125">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="nguyen.van.dung.273197" id="126">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="toa.kim.7161" id="127">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="khanhnguyen.baoan" id="128">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="lyly.ib98" id="129">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="lenam.kute.7" id="130">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="timtan.tamtan" id="131">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="khanh.linh.491096" id="132">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="ngothu.hoa" id="133">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="nhun.nhun.39904" id="134">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="trinh.son.313" id="135">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="lonh.bao.35" id="136">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="Chinggchichchot" id="137">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="th.cuong.sport" id="138">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="phuong.phuong.532586" id="139">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" id="140">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="vuongcamha.sum" id="141">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="nguyen.nga.680148" id="142">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="minhhoang1997hy" id="143">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="dinhstore.net" id="144">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="nha.truong.902" id="145">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="hoang.ngoc.quyen.316968" id="146">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="viet.thang.770983" target="trung.tranhoang.73" id="147">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" id="148">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="nt.thuongg.769949" id="149">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="manocanhbupbe" id="150">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="nguyen.van.dung.273197" id="151">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="toa.kim.7161" id="152">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="khanhnguyen.baoan" id="153">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="lyly.ib98" id="154">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="lenam.kute.7" id="155">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="timtan.tamtan" id="156">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="khanh.linh.491096" id="157">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="ngothu.hoa" id="158">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="nhun.nhun.39904" id="159">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="trinh.son.313" id="160">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="lonh.bao.35" id="161">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="kieu.enny.2025" id="162">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" id="163">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="catthao.trieu" id="164">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="thuylinh.dinh.758" id="165">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="thu.thuhuong" id="166">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="TrangAutumn" id="167">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" id="168">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="vuongcamha.sum" id="169">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" id="170">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="VoHoangLinh.2209" id="171">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="haiquan2604" id="172">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="tran.ang.quan.91833" id="173">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="minh.truong.649548" id="174">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="copcondidom" target="trang.anh.50600" id="175">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="nt.thuongg.769949" id="176">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="manocanhbupbe" id="177">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="nguyen.van.dung.273197" id="178">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="toa.kim.7161" id="179">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="khanhnguyen.baoan" id="180">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="lyly.ib98" id="181">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="lenam.kute.7" id="182">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="timtan.tamtan" id="183">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="khanh.linh.491096" id="184">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="ngothu.hoa" id="185">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="nhun.nhun.39904" id="186">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="trinh.son.313" id="187">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="lonh.bao.35" id="188">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="nhu.thao.3114" id="189">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="catthao.trieu" id="190">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="th.cuong.sport" id="191">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="truc.tho.35" id="192">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="nguyen.nga.680148" id="193">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="VoHoangLinh.2209" id="194">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="linh.giang.849869" id="195">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="chinh.535003" id="196">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="amnhianh" id="197">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleGh%C3%A9-Page-S%C4%83n-%C4%90%E1%BB%93-Xinh100085916888017" target="nguyen.hao.23140" id="198">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="manocanhbupbe" id="199">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="nguyen.van.dung.273197" id="200">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="toa.kim.7161" id="201">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="khanhnguyen.baoan" id="202">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="lyly.ib98" id="203">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="lenam.kute.7" id="204">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="timtan.tamtan" id="205">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="khanh.linh.491096" id="206">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="ngothu.hoa" id="207">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="nhun.nhun.39904" id="208">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="trinh.son.313" id="209">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="lonh.bao.35" id="210">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="Chinggchichchot" id="211">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="catthao.trieu" id="212">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="thuylinh.dinh.758" id="213">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" id="214">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="TrangAutumn" id="215">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="truc.tho.35" id="216">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="phuong.phuong.532586" id="217">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" id="218">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="vuongcamha.sum" id="219">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="Phatngoc.199121" id="220">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" id="221">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="yen.phan.51495" id="222">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="thuong.an.ha.26480" id="223">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="huongleo.2k" id="224">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nt.thuongg.769949" target="thedat37201901" id="225">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="nguyen.van.dung.273197" id="226">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="toa.kim.7161" id="227">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="khanhnguyen.baoan" id="228">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="lyly.ib98" id="229">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="lenam.kute.7" id="230">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="timtan.tamtan" id="231">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="khanh.linh.491096" id="232">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="ngothu.hoa" id="233">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="nhun.nhun.39904" id="234">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="trinh.son.313" id="235">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="lonh.bao.35" id="236">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="th.cuong.sport" id="237">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="thu.thuhuong" id="238">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" id="239">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="Phatngoc.199121" id="240">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="haiquan2604" id="241">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="rose.lisa.370515" id="242">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="meownabi016" id="243">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="hong.pink.9" id="244">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="heos.huong.1217" id="245">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="thuyen.le.3" id="246">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="peopleMinh-Ch%C3%A2u100025887886325" id="247">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="H.C.T.AAAAAAAAAAAAAAAAAAAAAAAA" id="248">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="ha.hien.952772" id="249">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="bui.minh.phuong.292579" id="250">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="manocanhbupbe" target="minh.trang.257292" id="251">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="toa.kim.7161" id="252">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="khanhnguyen.baoan" id="253">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="lyly.ib98" id="254">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="lenam.kute.7" id="255">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="timtan.tamtan" id="256">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="khanh.linh.491096" id="257">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="ngothu.hoa" id="258">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="nhun.nhun.39904" id="259">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="trinh.son.313" id="260">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="lonh.bao.35" id="261">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="nhu.thao.3114" id="262">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="th.cuong.sport" id="263">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="TrangAutumn" id="264">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="my.luantra.71" id="265">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" id="266">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" id="267">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="peopleL%C3%AA-N-%C3%81nhpfbid02i5yrtJXSZN5tgiDzAWnB7ikiFJHRYkbfTcqZPtaxzPY9mk7FwwyQigiUc3a8NLBFl" id="268">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="bui.van.anh.310346" id="269">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="le.be.304526" id="270">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="ann.le.551014" id="271">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.van.dung.273197" target="gia.hue.63415" id="272">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="khanhnguyen.baoan" id="273">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="lyly.ib98" id="274">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="lenam.kute.7" id="275">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="timtan.tamtan" id="276">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="khanh.linh.491096" id="277">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="ngothu.hoa" id="278">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="nhun.nhun.39904" id="279">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="trinh.son.313" id="280">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="lonh.bao.35" id="281">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="thu.thuhuong" id="282">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="my.luantra.71" id="283">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" id="284">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="vuongcamha.sum" id="285">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="phuong.thao.468099" id="286">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" id="287">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="hellen.pham.709493" id="288">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="VoHoangLinh.2209" id="289">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="luong.nhung.1991" id="290">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="anvatvamuasam.2024" id="291">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="hangpham.070" id="292">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="vnhy2601" id="293">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="toa.kim.7161" target="hienn.hien.2507" id="294">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="lyly.ib98" id="295">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="lenam.kute.7" id="296">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="timtan.tamtan" id="297">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="khanh.linh.491096" id="298">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="ngothu.hoa" id="299">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="nhun.nhun.39904" id="300">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="trinh.son.313" id="301">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="lonh.bao.35" id="302">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="nhu.thao.3114" id="303">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="TrangAutumn" id="304">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="phuong.phuong.532586" id="305">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="nguyen.nga.680148" id="306">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="ong.su.nu.cuoi" id="307">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" id="308">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="phuong.thao.468099" id="309">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="thuy.nhan.895028" id="310">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="vy.kieu.3766" id="311">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="nguyen.thanh.ky.899949" id="312">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="khanhnguyen.baoan" target="phuong.han.2709" id="313">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="lenam.kute.7" id="314">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="timtan.tamtan" id="315">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="khanh.linh.491096" id="316">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="ngothu.hoa" id="317">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="nhun.nhun.39904" id="318">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="trinh.son.313" id="319">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="lonh.bao.35" id="320">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="kieu.enny.2025" id="321">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" id="322">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="thuylinh.dinh.758" id="323">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="sgvn.hello" id="324">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="trinh.thanh.tam.382693" id="325">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="minhhoang1997hy" id="326">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="phuong.thao.468099" id="327">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" id="328">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="hellen.pham.709493" id="329">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="nku.y74" id="330">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="hamay3103" id="331">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="ngoc.vang021096" id="332">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lyly.ib98" target="hien.nguyen.44035" id="333">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="timtan.tamtan" id="334">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="khanh.linh.491096" id="335">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="ngothu.hoa" id="336">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="nhun.nhun.39904" id="337">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="trinh.son.313" id="338">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="lonh.bao.35" id="339">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="nhu.thao.3114" id="340">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="Chinggchichchot" id="341">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" id="342">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="Rah.Lanmin1996" id="343">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="sgvn.hello" id="344">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="TrangAutumn" id="345">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="my.luantra.71" id="346">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" id="347">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="toan.le.77377" id="348">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="linh.saku.3" id="349">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="anperfexx2212" id="350">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="inhthikimphuong.8107" id="351">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="bui.van.hau.416861" id="352">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lenam.kute.7" target="maixuan.duong.395" id="353">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="khanh.linh.491096" id="354">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="ngothu.hoa" id="355">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="nhun.nhun.39904" id="356">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="trinh.son.313" id="357">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="lonh.bao.35" id="358">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" id="359">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="truc.tho.35" id="360">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="phuong.phuong.532586" id="361">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" id="362">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="ong.su.nu.cuoi" id="363">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="minhhoang1997hy" id="364">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="luong.nhung.1991" id="365">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="trang.le.401505" id="366">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="vi.phuong.7982" id="367">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="vu.thi.van.80258" id="368">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="NGUYENTOTAM" id="369">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="tranthanhhai1508" id="370">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="timtan.tamtan" target="nlplinh1612" id="371">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="khanh.linh.491096" target="ngothu.hoa" id="372">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanh.linh.491096" target="nhun.nhun.39904" id="373">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanh.linh.491096" target="trinh.son.313" id="374">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanh.linh.491096" target="lonh.bao.35" id="375">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="khanh.linh.491096" target="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" id="376">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanh.linh.491096" target="trinh.thanh.tam.382693" id="377">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanh.linh.491096" target="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" id="378">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanh.linh.491096" target="hellen.pham.709493" id="379">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanh.linh.491096" target="VoHoangLinh.2209" id="380">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanh.linh.491096" target="haiquan2604" id="381">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="khanh.linh.491096" target="an.leba.56884" id="382">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="nhun.nhun.39904" id="383">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="trinh.son.313" id="384">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="lonh.bao.35" id="385">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="nhu.thao.3114" id="386">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" id="387">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="Rah.Lanmin1996" id="388">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="sgvn.hello" id="389">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="trinh.thanh.tam.382693" id="390">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="minhhoang1997hy" id="391">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="hellen.pham.709493" id="392">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="pham.bon.3" id="393">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="trinh.lien.52" id="394">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="pham.minhan.9083" id="395">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="thaouyen.nguyen.12139862" id="396">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ngothu.hoa" target="dieulau.91" id="397">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="trinh.son.313" id="398">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="lonh.bao.35" id="399">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="kieu.enny.2025" id="400">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="thuylinh.dinh.758" id="401">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="sgvn.hello" id="402">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="ong.su.nu.cuoi" id="403">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="minhhoang1997hy" id="404">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" id="405">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="phuong.thao.468099" id="406">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="Phatngoc.199121" id="407">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="mai.linh.413930" id="408">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="buonnhungkovui" id="409">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nhun.nhun.39904" target="nga.nguyen.528055" id="410">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="lonh.bao.35" id="411">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" id="412">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="Rah.Lanmin1996" id="413">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="trinh.thanh.tam.382693" id="414">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="nguyen.nga.680148" id="415">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="ong.su.nu.cuoi" id="416">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" id="417">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="hai.buixuan.752" id="418">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="camha1512" id="419">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="nguyen.thang.947613" id="420">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="nguyen.nguyen.thi.phuong.273459" id="421">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="tran.hanh.271327" id="422">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="khenh.200299" id="423">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="anh.truc.dang.2024" id="424">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="trung.tran.573510" id="425">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.son.313" target="hai.yen.712008" id="426">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lonh.bao.35" target="Chinggchichchot" id="427">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lonh.bao.35" target="Rah.Lanmin1996" id="428">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lonh.bao.35" target="phuong.phuong.532586" id="429">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lonh.bao.35" target="my.luantra.71" id="430">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lonh.bao.35" target="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" id="431">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lonh.bao.35" target="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" id="432">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lonh.bao.35" target="luong.nhung.1991" id="433">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="lonh.bao.35" target="dury.diewnhii" id="434">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lonh.bao.35" target="minh.huong.851153" id="435">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lonh.bao.35" target="tu.quynh.902811" id="436">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nhu.thao.3114" target="myhuyen.len.7" id="437">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nhu.thao.3114" target="dung.hoang.960607" id="438">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nhu.thao.3114" target="suong.buta" id="439">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nhu.thao.3114" target="charlie.teng.581" id="440">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kieu.enny.2025" target="pinkybongbong" id="441">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kieu.enny.2025" target="nguyen.manh.hung.890340" id="442">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kieu.enny.2025" target="trinh.phuong.9026" id="443">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kieu.enny.2025" target="trang.quan.56" id="444">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kieu.enny.2025" target="lann.ems" id="445">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kieu.enny.2025" target="nhung.nhun.490575" id="446">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Chinggchichchot" target="tsankhin" id="447">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" target="ainguyen1191" id="448">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" target="cong.nguyen.7127" id="449">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" target="trieu.hoang.yen.262888" id="450">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" target="phuong.38490" id="451">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peoplePh%C6%B0%C6%A1ng-Ho%C3%A0i61583253943937" target="anh.nguyen.130888" id="452">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="catthao.trieu" target="thuy.nho.94" id="453">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="catthao.trieu" target="guyguymua" id="454">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="catthao.trieu" target="linhkeyy01062002" id="455">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="catthao.trieu" target="hanna.mins.9" id="456">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="catthao.trieu" target="tranhai92.mc" id="457">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="catthao.trieu" target="duoc.sy.tran.oanh" id="458">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="catthao.trieu" target="anghoan.931569" id="459">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="catthao.trieu" target="thuy.tien.704702" id="460">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="catthao.trieu" target="ptc2812" id="461">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thuylinh.dinh.758" target="peopleNhi-Nhipfbid04rF2aL9UiJqBZW9NdAEBqiLXbVbKdQD4gFEGgBNKsy7LWqMCf1ko8cqhb6DzKstHl" id="462">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thuylinh.dinh.758" target="dung.nguyen.549730" id="463">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thuylinh.dinh.758" target="kuutuoffcial" id="464">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thuylinh.dinh.758" target="thu.ha.699799" id="465">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thuylinh.dinh.758" target="Lazycat.s2ck" id="466">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="th.cuong.sport" target="chibeautifulgirl" id="467">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="th.cuong.sport" target="ThanhTuan15689" id="468">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thu.thuhuong" target="hue.vu.625480" id="469">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thu.thuhuong" target="quynhchau.cao.7" id="470">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thu.thuhuong" target="loan.xinh.604087" id="471">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thu.thuhuong" target="chuots.vu.3" id="472">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thu.thuhuong" target="ha.lai.39108" id="473">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="thu.thuhuong" target="tran.linh.889715" id="474">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" target="trang.cot.752" id="475">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" target="min.jeonji" id="476">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" target="xuan.tranle.12" id="477">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" target="trungthanh.phuyen" id="478">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" target="nhung.mun.523753" id="479">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" target="khanh.huong28" id="480">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNguy%E1%BB%85n-Th%C6%A1mpfbid02j7cKtxcPT4Vc6Mt5FMcMttGwFRu4D1ARYoFsvHduLNSRffMN4KWTyFHozpy85qkSl" target="ngocsinh.pham.71" id="481">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Rah.Lanmin1996" target="nguyen.huong.808553" id="482">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Rah.Lanmin1996" target="dungdo223" id="483">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Rah.Lanmin1996" target="buitrungkmx" id="484">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Rah.Lanmin1996" target="ruanyuemei2611" id="485">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="sgvn.hello" target="linh.thuy.548305" id="486">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="sgvn.hello" target="Thitrung.nguyen22" id="487">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="sgvn.hello" target="minhanhluong99" id="488">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="sgvn.hello" target="Core.ThuTran" id="489">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="sgvn.hello" target="tuan.nheo.235688" id="490">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TrangAutumn" target="khanhgiaost" id="491">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TrangAutumn" target="votuong1985" id="492">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TrangAutumn" target="ha.lee1803" id="493">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="truc.tho.35" target="nguyen.thi.quyet.77552" id="494">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="truc.tho.35" target="dung.trai.12" id="495">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="truc.tho.35" target="le.hang.399041" id="496">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="phuong.phuong.532586" target="khuyen.huyen.2024" id="497">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="phuong.phuong.532586" target="dung.phi.986" id="498">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="phuong.phuong.532586" target="khiem.gia.253901" id="499">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="phuong.phuong.532586" target="kiu.chan.20" id="500">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.thanh.tam.382693" target="hongtuoi.vovo" id="501">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.thanh.tam.382693" target="cam.tam.165826" id="502">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.thanh.tam.382693" target="Nguyenhuonghaugiang" id="503">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="trinh.thanh.tam.382693" target="huong.to.750" id="504">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="my.luantra.71" target="phuongthe19021997" id="505">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="my.luantra.71" target="kem.quynh.963" id="506">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="my.luantra.71" target="nhan.be.3745" id="507">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="my.luantra.71" target="le.ang.minh.thu.143610" id="508">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" target="tuong.tuong.7002" id="509">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" target="pham.hoa.423515" id="510">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" target="nguyen.hoa.748345" id="511">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" target="huutin.le.923" id="512">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" target="viettrinh0901" id="513">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" target="linh.lieu.1048" id="514">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleNg%E1%BB%8Dc-H%C6%B0%C6%A1ng-TipClub61583868568793" target="NguyenNam288" id="515">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" target="khanh.ly.166030" id="516">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" target="lim.zara.1" id="517">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" target="hien.tee.392490" id="518">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" target="quang.minh.681610" id="519">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" target="hang.ang.690157" id="520">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleTh%E1%BA%A3o-Trang-TipClub61582592690596" target="cuc.phuong.417545" id="521">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="vuongcamha.sum" target="tran.ngoc.anh.463941" id="522">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="vuongcamha.sum" target="munnhi.99" id="523">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="vuongcamha.sum" target="datkhanh.ngahung" id="524">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="vuongcamha.sum" target="lovanthieu1891996" id="525">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="vuongcamha.sum" target="linh97.leo" id="526">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.nga.680148" target="hao.komakai.okane" id="527">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.nga.680148" target="tran.huyen.398670" id="528">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.nga.680148" target="tran.ngoc.mai.352641" id="529">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.nga.680148" target="Ebisu207" id="530">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="nguyen.nga.680148" target="nhu.vigro.3" id="531">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ong.su.nu.cuoi" target="hoai.luong.754544" id="532">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ong.su.nu.cuoi" target="hanh.hoangthi.75098364" id="533">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ong.su.nu.cuoi" target="ly.ngoc.bich.phuong" id="534">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ong.su.nu.cuoi" target="van.bom.77" id="535">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ong.su.nu.cuoi" target="dino.long.104" id="536">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ong.su.nu.cuoi" target="tran.thanh.hang.566521" id="537">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="minhhoang1997hy" target="Truongdepzaii68" id="538">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="minhhoang1997hy" target="peopleKim-M%E1%BB%B9-T%C3%A0i100045589477859" id="539">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="minhhoang1997hy" target="ngo.mai.405177" id="540">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="minhhoang1997hy" target="maianh.luu.1257" id="541">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="minhhoang1997hy" target="YourSoulBelongsToMe" id="542">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" target="meoluoi.ngungay.94" id="543">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" target="thao.tay.360057" id="544">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" target="zee.kho.52" id="545">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" target="xoan.mai.754918" id="546">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" target="nguyenthihongngoc.15.02" id="547">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" target="dohonghao1" id="548">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" target="ngockim0801" id="549">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleLy-Lypfbid02zTfwkhhbfH3hzYnhqhDUv2cPKZW82y5fnciJcMU7ATyhZKQjjNnK7CioSE5drvXml" target="pham.thi.hien.919157" id="550">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="phuong.thao.468099" target="nguyen.hoang.quynh.phuong.2024" id="551">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="phuong.thao.468099" target="nghia.le.870772" id="552">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="phuong.thao.468099" target="nguyen.ngoc.anh.251003" id="553">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="phuong.thao.468099" target="hong.nhung.762692" id="554">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="phuong.thao.468099" target="thao.nguyen.815786" id="555">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="phuong.thao.468099" target="hhgiang.31" id="556">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="phuong.thao.468099" target="cay.nho.5" id="557">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Phatngoc.199121" target="le.xuan.yen.28179" id="558">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Phatngoc.199121" target="bass.loc.9" id="559">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" target="duc.ledinh.507" id="560">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" target="linh.nguyen.90494" id="561">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" target="peopleNh%E1%BA%A5t-Huypfbid02pf1qVQo7eCpuHeL9y8eNR1nzQkcqWEU6LwK22WdExBEkNSbGXeZhD99izWyjYzcKl" id="562">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" target="lovebbbtth" id="563">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" target="trang.xinh.58323" id="564">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="peopleThu-Minhpfbid0U6Yv7hk8Cs4hn8gaFdvxodmc27HmPoo1mnc9HWXmPbftCAKGan4yCeQ8SxhnnHVBl" target="hankieudiem" id="565">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="hellen.pham.709493" target="dani.trinh.5" id="566">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="hellen.pham.709493" target="MANTALFahion" id="567">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="hellen.pham.709493" target="hoang.thi.minh.lan" id="568">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="phuong.namm.672285" id="569">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="alexngwangle" id="570">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="thuyduongdo2392" id="571">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="pham.phuonganh.858165" id="572">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="man.nhi.628577" id="573">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="pe.an.75098" id="574">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="lantran.LT88" id="575">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="vetthuong.vohinh.180" id="576">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="TucYenDuongTrung" id="577">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="ngocanh2642462" id="578">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="nguyen.daisy.984991" id="579">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="hien.thanh.54379" id="580">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="VoHoangLinh.2209" target="linh.chi.877649" id="581">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="luong.nhung.1991" target="lam.lee.52687506" id="582">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="luong.nhung.1991" target="truc.linh.997455" id="583">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="luong.nhung.1991" target="hoa.duong.493446" id="584">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="luong.nhung.1991" target="phuong.chi.oan" id="585">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="luong.nhung.1991" target="anhtungpham.97" id="586">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="luong.nhung.1991" target="kieu.nga.839060" id="587">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="luong.nhung.1991" target="thanh.dat.nguyen.482720" id="588">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="luong.nhung.1991" target="tieu.long.465530" id="589">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="haiquan2604" target="lequangvinh20" id="590">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
