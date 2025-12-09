@@ -6,8 +6,8 @@ test_database/
 .docx
 .pptx
 
-Movielens/code_br.ipynb
-Movielens/Khuong_cook.ipynb
+Movielens/code_thuong.ipynb
+Movielens/Khuong_c.ipynb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
