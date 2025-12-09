@@ -6,6 +6,9 @@ test_database/
 .docx
 .pptx
 
+Movielens/code_br.ipynb
+Movielens/Khuong_cook.ipynb
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
