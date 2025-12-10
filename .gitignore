@@ -2,10 +2,10 @@
 datasets/
 database/
 test_database/
-.csv
-.docx
-.pptx
-.xlsx
+*.csv
+*.docx
+*.pptx
+*.xlsx
 
 Movielens/cook_thuong.ipynb
 Movielens/khuong_cook.ipynb
