@@ -3,7 +3,6 @@ datasets/
 database/
 test_database/
 *.csv
-*.docx
 *.pptx
 *.xlsx
 
