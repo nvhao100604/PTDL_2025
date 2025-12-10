@@ -1,8 +1,13 @@
 # datasets
 datasets/
-.csv
-.docx
-.pptx
+database/
+test_database/
+*.csv
+*.pptx
+*.xlsx
+
+Movielens/cook_thuong.ipynb
+Movielens/khuong_cook.ipynb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
