@@ -1,0 +1,9 @@
+Link github nhóm: https://github.com/nvhao100604/PTDL_2025
+Đề tài: Phân tích các yếu tố ảnh hưởng đến mức độ hài lòng của khán giả đối với phim điện ảnh: Nghiên cứu trên tập dữ liệu MovieLens và TMDB.
+
+Câu hỏi nghiên cứu: 
+1. Yếu tố Tài chính: Ngân sách (Budget) hoặc Doanh thu (Revenue) có mối liên hệ tích cực hay tiêu cực đối với rating trung bình của phim?
+
+2. Yếu tố Nội dung & Cấu trúc: Các Thể loại (Genre) phim khác nhau có xu hướng nhận được mức rating trung bình khác nhau đáng kể không? Độ dài phim (Movie length) có ảnh hưởng đến việc người dùng đánh giá cao hay thấp?
+
+3. Yếu tố Nhân sự & Thời gian: Vai trò của Đạo diễn/diễn viên có tên tuổi lớn có tương quan mạnh mẽ với rating người dùng cao hơn không? Năm sản xuất (phim cũ/mới) có ảnh hưởng đến rating trung bình không?
