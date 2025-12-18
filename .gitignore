@@ -6,6 +6,8 @@ test_database/
 *.csv
 *.pptx
 *.xlsx
+*.zip
+*.html
 
 Movielens/cook_thuong.ipynb
 Movielens/khuong_cook.ipynb
