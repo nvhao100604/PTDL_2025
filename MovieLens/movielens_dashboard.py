@@ -123,9 +123,20 @@ with st.sidebar:
     st.markdown("## 📊 Điều khiển Dashboard")
     
     analysis_type = st.selectbox(
-        "Chọn loại phân tích:",
-        ["Tổng quan", "Phân tích Users", "Phân tích Movies", "Phân tích Ratings", "Phân tích TMDb"]
-    )
+    "Chọn loại phân tích:",
+    [
+        "Tổng quan",
+        "Phân tích Users",
+        "Phân tích Movies",
+        "Phân tích Ratings",
+        "Phân tích TMDb",
+        "Tiền xử lí dữ liệu",
+        "EDA",
+        "Yếu tố tài chính"
+    ]
+)
+
+
     
     st.markdown("---")
     st.markdown("### 📈 Thống kê nhanh")
@@ -558,7 +569,277 @@ elif analysis_type == "Phân tích TMDb":
             labels={'popularity': 'Popularity', 'title_x': 'Phim', 'vote_average': 'Vote Avg'}
         )
         fig.update_layout(height=600, yaxis={'categoryorder':'total ascending'})
-        st.plotly_chart(fig, use_container_width=True)
+    # =========================
+# TAB: TIỀN XỬ LÍ DỮ LIỆU
+# =========================
+elif analysis_type == "Tiền xử lí dữ liệu":
+
+    st.subheader("🧹 Tiền xử lí dữ liệu MovieLens & TMDb")
+
+    st.markdown("### 1️⃣ Kiểm tra dữ liệu ban đầu")
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.write("**Users**")
+        st.dataframe(users.head())
+    with col2:
+        st.write("**Movies**")
+        st.dataframe(movies.head())
+    with col3:
+        st.write("**Ratings**")
+        st.dataframe(ratings.head())
+
+    st.markdown("---")
+    st.markdown("### 2️⃣ Kiểm tra giá trị thiếu")
+
+    missing_df = pd.DataFrame({
+        "Users": users.isnull().sum(),
+        "Movies": movies.isnull().sum(),
+        "Ratings": ratings.isnull().sum()
+    })
+
+    st.dataframe(missing_df)
+
+    st.markdown("📌 **Nhận xét:** Dataset MovieLens hầu như không có giá trị thiếu.")
+
+    st.markdown("---")
+    st.markdown("### 3️⃣ Xử lí dữ liệu Genres")
+
+    movies['Genres'] = movies['Genres'].str.split('|')
+    st.write("Ví dụ sau khi tách Genres:")
+    st.dataframe(movies[['Title', 'Genres']].head())
+
+    st.markdown("---")
+    st.markdown("### 4️⃣ Gộp dữ liệu Movies & Ratings")
+
+    movie_rating_full = pd.merge(ratings, movies, on="MovieID")
+    movie_rating_full = pd.merge(movie_rating_full, movie_targets, on="MovieID")
+
+    st.write("Dữ liệu sau khi merge:")
+    st.dataframe(movie_rating_full.head())
+
+    st.markdown("---")
+    st.markdown("### 5️⃣ Lọc phim có đủ số lượng đánh giá")
+
+    min_rating = st.slider(
+        "Chọn số lượng rating tối thiểu:",
+        min_value=10,
+        max_value=500,
+        value=50,
+        step=10
+    )
+
+    filtered_movies = movie_targets[movie_targets['rating_count'] >= min_rating]
+
+    st.metric(
+        "Số phim sau khi lọc",
+        f"{len(filtered_movies):,}"
+    )
+
+    st.markdown("📌 **Mục đích:** Tránh nhiễu từ các phim có quá ít đánh giá.")
+# =========================
+# TAB: EDA
+# =========================
+elif analysis_type == "EDA":
+
+    st.subheader("📊 Exploratory Data Analysis (EDA)")
+
+    st.markdown("### 1️⃣ Phân bố Rating")
+
+    rating_dist = ratings['Rating'].value_counts().sort_index()
+    st.bar_chart(rating_dist)
+
+    st.markdown("📌 **Nhận xét:** Người dùng có xu hướng đánh giá cao (4–5 sao).")
+
+    st.markdown("---")
+    st.markdown("### 2️⃣ Top phim được đánh giá nhiều nhất")
+
+    top_movies = movie_targets.sort_values(
+        by="rating_count",
+        ascending=False
+    ).head(10)
+
+    top_movies = pd.merge(
+        top_movies,
+        movies[['MovieID', 'Title']],
+        on='MovieID'
+    )
+
+    st.dataframe(top_movies)
+
+    st.markdown("---")
+    st.markdown("### 3️⃣ Quan hệ giữa số lượt rating và điểm trung bình")
+
+    st.scatter_chart(
+        movie_targets,
+        x="rating_count",
+        y="avg_rating"
+    )
+
+    st.markdown("📌 **Nhận xét:** Các phim có nhiều rating thường có điểm ổn định hơn.")
+
+    st.markdown("---")
+    st.markdown("### 4️⃣ Phân tích theo độ tuổi người dùng")
+
+    user_rating_age = pd.merge(ratings, users, on="UserID")
+
+    age_rating = user_rating_age.groupby("Age")['Rating'].mean().reset_index()
+
+    st.line_chart(
+        age_rating,
+        x="Age",
+        y="Rating"
+    )
+
+    st.markdown("📌 **Nhận xét:** Rating trung bình thay đổi nhẹ theo nhóm tuổi.")
+
+    st.markdown("---")
+    st.markdown("### 5️⃣ Phân tích theo giới tính")
+
+    gender_rating = user_rating_age.groupby("Gender")['Rating'].mean().reset_index()
+
+    st.bar_chart(
+        gender_rating,
+        x="Gender",
+        y="Rating"
+    )
+
+    st.markdown("📌 **Nhận xét:** Sự khác biệt rating giữa nam và nữ không quá lớn.")
+
+# =========================
+# TAB: YẾU TỐ TÀI CHÍNH
+# =========================
+elif analysis_type == "Yếu tố tài chính":
+
+    st.subheader("💰 Phân tích các yếu tố tài chính & Rating")
+
+    st.markdown("""
+    Tab này phân tích mối quan hệ giữa:
+    - **Ngân sách sản xuất (Budget)**
+    - **Doanh thu phòng vé (Revenue)**
+    - **Rating trung bình của người dùng MovieLens**
+    """)
+
+    # Chuẩn hóa title MovieLens
+    movies['Title_clean'] = movies['Title'].str.replace(
+    r"\s*\(\d{4}\)", "", regex=True
+    ).str.strip()
+    
+    # ======================
+    # 1. Chuẩn bị dữ liệu
+    # ======================
+    finance_df = tmdb_full[['movie_id', 'original_title', 'budget', 'revenue']]
+    finance_df = finance_df[finance_df['budget'] > 0]
+    finance_df = finance_df[finance_df['revenue'] > 0]
+    finance_df = finance_df.rename(columns={'original_title': 'tmdb_title'})
+    finance_df['tmdb_title_clean'] = finance_df['tmdb_title'].str.strip()
+
+
+    # Map MovieLens ↔ TMDb theo title
+    movies_finance = pd.merge(
+        movies,
+        finance_df,
+        left_on='Title_clean',
+        right_on='tmdb_title_clean',
+        how='inner'
+    )
+
+    movies_finance = pd.merge(
+        movies_finance,
+        movie_targets,
+        on='MovieID'
+    )
+
+    st.metric("Số phim dùng cho phân tích tài chính", f"{len(movies_finance):,}")
+
+    st.markdown("---")
+    st.markdown("### 1️⃣ Thống kê mô tả Budget & Revenue")
+
+    st.dataframe(
+        movies_finance[['budget', 'revenue', 'avg_rating', 'rating_count']].describe()
+    )
+
+    # ======================
+    # 2. Budget vs Rating
+    # ======================
+    st.markdown("---")
+    st.markdown("### 2️⃣ Quan hệ giữa Budget và Rating")
+
+    st.scatter_chart(
+        movies_finance,
+        x="budget",
+        y="avg_rating"
+    )
+
+    st.markdown("""
+    📌 **Nhận xét:**  
+    - Ngân sách lớn **không đảm bảo** rating cao  
+    - Tồn tại hiện tượng **hiệu quả giảm dần**
+    """)
+
+    # ======================
+    # 3. Revenue vs Rating
+    # ======================
+    st.markdown("---")
+    st.markdown("### 3️⃣ Quan hệ giữa Revenue và Rating")
+
+    st.scatter_chart(
+        movies_finance,
+        x="revenue",
+        y="avg_rating"
+    )
+
+    st.markdown("""
+    📌 **Nhận xét:**  
+    - Phim doanh thu cao thường có rating **ổn định hơn**
+    - Tuy nhiên vẫn tồn tại nhiều ngoại lệ
+    """)
+
+    # ======================
+    # 4. ROI vs Rating
+    # ======================
+    st.markdown("---")
+    st.markdown("### 4️⃣ ROI (Revenue / Budget) và Rating")
+
+    movies_finance['ROI'] = movies_finance['revenue'] / movies_finance['budget']
+
+    st.scatter_chart(
+        movies_finance,
+        x="ROI",
+        y="avg_rating"
+    )
+
+    st.markdown("""
+    📌 **Nhận xét:**  
+    - ROI cao **không đồng nghĩa** rating cao  
+    - Nhiều phim chi phí thấp – hiệu quả tốt nhưng rating trung bình
+    """)
+
+    # ======================
+    # 5. Phân nhóm ngân sách
+    # ======================
+    st.markdown("---")
+    st.markdown("### 5️⃣ Phân tích Rating theo nhóm ngân sách")
+
+    movies_finance['budget_group'] = pd.qcut(
+        movies_finance['budget'],
+        q=4,
+        labels=['Thấp', 'Trung bình', 'Cao', 'Rất cao']
+    )
+
+    budget_group_rating = movies_finance.groupby('budget_group')['avg_rating'].mean().reset_index()
+
+    st.bar_chart(
+        budget_group_rating,
+        x="budget_group",
+        y="avg_rating"
+    )
+
+    st.markdown("""
+    📌 **Kết luận quan trọng:**  
+    - Rating trung bình **không tăng tuyến tính** theo ngân sách  
+    - Sau một ngưỡng nhất định, tăng budget **không mang lại cải thiện rõ rệt**
+    """)
 
 # Footer
 st.markdown("---")
