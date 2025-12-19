@@ -287,7 +287,7 @@ if analysis_type == "Tổng quan":
 elif analysis_type == "Phân tích Users":
     st.markdown("## 👥 Phân tích Người dùng")
     
-    tab1, tab2, tab3 = st.tabs(["Thống kê cơ bản", "Phân tích theo nhóm tuổi"])
+    tab1, tab2= st.tabs(["Thống kê cơ bản", "Phân tích theo nhóm tuổi"])
     
     with tab1:
         col1, col2 = st.columns(2)
@@ -1073,10 +1073,42 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
 
     df = full_data.copy()
 
-    target = 'avg_rating'
     feature_cols = ['budget', 'runtime', 'popularity', 'vote_count', 'revenue']
+    target = 'avg_rating'
 
-    df = df[feature_cols + ['Genres', target]].dropna()
+    df = df[
+        feature_cols + ['Genres', target]
+    ].dropna()
+
+    # ⚠️ Giảm size để Streamlit chạy mượt
+    df = df.sample(n=min(50000, len(df)), random_state=42)
+
+    # Encode genres đúng cách
+    df['Genres_list'] = df['Genres'].str.split('|')
+    genres_dummies = df['Genres_list'].str.join('|').str.get_dummies()
+
+    X = pd.concat([df[feature_cols], genres_dummies], axis=1)
+    y = df[target]
+
+    # Train test split (DUY NHẤT 1 LẦN)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
+
+    scaler = StandardScaler()
+    X_train_s = scaler.fit_transform(X_train)
+    X_test_s = scaler.transform(X_test)
+
+    # LƯU CHO CÁC TAB DÙNG
+    st.session_state.update({
+        'X_train': X_train,
+        'X_test': X_test,
+        'X_train_s': X_train_s,
+        'X_test_s': X_test_s,
+        'y_train': y_train,
+        'y_test': y_test
+    })
+
 
     tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
         "📈 Từng yếu tố đơn lẻ",
@@ -1089,45 +1121,47 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
     ])
 
     with tab1:
-        results = []
+        rows = []
 
-        for feature in feature_cols:
-            X = df[[feature]]
-            y = df[target]
+        for col in feature_cols:
+            X_col = df[[col]]
+            y_col = df[target]
 
-            model = LinearRegression().fit(X, y)
-            y_pred = model.predict(X)
+            model = LinearRegression().fit(X_col, y_col)
+            pred = model.predict(X_col)
 
-            results.append({
-                'Feature': feature,
+            rows.append({
+                'Feature': col,
                 'Coefficient': model.coef_[0],
-                'R²': r2_score(y, y_pred),
-                'RMSE': np.sqrt(mean_squared_error(y, y_pred))
+                'R²': r2_score(y_col, pred),
+                'RMSE': np.sqrt(mean_squared_error(y_col, pred))
             })
 
-        results_df = pd.DataFrame(results).sort_values('R²', ascending=False)
-        st.dataframe(results_df, use_container_width=True)
+        st.dataframe(pd.DataFrame(rows).sort_values('R²', ascending=False))
+
 
 
     with tab2:
-        df_enc = pd.get_dummies(df[['Genres']], drop_first=True)
-        X = pd.concat([df[feature_cols], df_enc], axis=1)
-        y = df[target]
+        model = LinearRegression().fit(
+            st.session_state['X_train_s'],
+            st.session_state['y_train']
+        )
 
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        r2 = r2_score(
+            st.session_state['y_test'],
+            model.predict(st.session_state['X_test_s'])
+        )
 
-        scaler = StandardScaler()
-        X_train_s = scaler.fit_transform(X_train)
-        X_test_s = scaler.transform(X_test)
+        st.metric("R² (Test)", f"{r2:.4f}")
 
-        model = LinearRegression().fit(X_train_s, y_train)
-
-        st.metric("R² (Test)", f"{r2_score(y_test, model.predict(X_test_s)):.4f}")
 
         
     with tab3:
-        lasso = Lasso(alpha=0.01, max_iter=10000)
-        lasso.fit(X_train_s, y_train)
+        lasso = Lasso(alpha=0.01, max_iter=5000)
+        lasso.fit(
+            st.session_state['X_train_s'],
+            st.session_state['y_train']
+        )
 
         coef = pd.DataFrame({
             'Feature': X_train.columns,
@@ -1135,7 +1169,6 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
         }).query("Coefficient != 0")
 
         st.dataframe(coef.sort_values('Coefficient', key=abs, ascending=False))
-
     
     with tab4:
         poly = PolynomialFeatures(degree=2, interaction_only=True, include_bias=False)
@@ -1175,8 +1208,17 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
 
         
     with tab6:
-        rf = RandomForestRegressor(n_estimators=200, random_state=42)
-        rf.fit(X_train, y_train)
+        rf = RandomForestRegressor(
+            n_estimators=200,
+            max_depth=12,
+            random_state=42,
+            n_jobs=-1
+        )
+
+        rf.fit(
+            st.session_state['X_train'],
+            st.session_state['y_train']
+        )
 
         imp = pd.DataFrame({
             'Feature': X_train.columns,
