@@ -1,0 +1,570 @@
+import streamlit as st
+import pandas as pd
+import numpy as np
+import re
+import ast
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import warnings
+warnings.filterwarnings('ignore')
+
+# Cấu hình trang
+st.set_page_config(
+    page_title="MovieLens Analytics Dashboard",
+    page_icon="🎬",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# CSS tùy chỉnh
+st.markdown("""
+    <style>
+    .main-header {
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 1rem 0;
+    }
+    .metric-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 1.5rem;
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+    }
+    .stTab {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Hàm xử lý dữ liệu
+@st.cache_data
+def clean_movielens_title(text):
+    return re.sub(r'\s*\(\d{4}\)$', '', str(text)).lower().strip()
+
+@st.cache_data
+def clean_tmdb_title(text):
+    return str(text).lower().strip()
+
+@st.cache_data
+def get_director(text):
+    try:
+        data = ast.literal_eval(text)
+        for x in data:
+            if x['job'] == 'Director': 
+                return x['name']
+        return np.nan
+    except: 
+        return np.nan
+
+@st.cache_data
+def get_top_actors(text):
+    try:
+        data = ast.literal_eval(text)
+        return [x['name'] for x in data[:3]]
+    except: 
+        return []
+
+@st.cache_data
+def load_data():
+    """Tải và xử lý dữ liệu"""
+    try:
+        # Đọc dữ liệu MovieLens
+        u_cols = ['UserID', 'Gender', 'Age', 'Occupation', 'Zip-code']
+        m_cols = ['MovieID', 'Title', 'Genres']
+        r_cols = ['UserID', 'MovieID', 'Rating', 'Timestamp']
+        
+        users = pd.read_csv('MovieLens/datasets/movie_len_1M/users.dat', sep='::', names=u_cols, encoding='latin-1', engine='python')
+        movies = pd.read_csv('MovieLens/datasets/movie_len_1M/movies.dat', sep='::', names=m_cols, encoding='latin-1', engine='python')
+        ratings = pd.read_csv('MovieLens/datasets/movie_len_1M/ratings.dat', sep='::', names=r_cols, encoding='latin-1', engine='python')
+        
+        # Tính điểm trung bình
+        movie_targets = ratings.groupby('MovieID')['Rating'].agg(['mean', 'count']).reset_index()
+        movie_targets.columns = ['MovieID', 'avg_rating', 'rating_count']
+        
+        # Đọc dữ liệu TMDb
+        try:
+            tmdb_cred = pd.read_csv('MovieLens/datasets/tmdb_5000/tmdb_5000_credits.csv', encoding='utf-8')
+            tmdb_mov = pd.read_csv('MovieLens/datasets/tmdb_5000/tmdb_5000_movies.csv', encoding='utf-8')
+        except:
+            tmdb_cred = pd.read_csv('MovieLens/datasets/tmdb_5000/tmdb_5000_credits.csv', encoding='latin-1')
+            tmdb_mov = pd.read_csv('MovieLens/datasets/tmdb_5000/tmdb_5000_movies.csv', encoding='latin-1')
+        
+        tmdb_cred.columns = ['movie_id', 'title', 'cast', 'crew']
+        tmdb_mov = tmdb_mov.rename(columns={'id': 'movie_id'})
+        tmdb_full = pd.merge(tmdb_mov, tmdb_cred, on='movie_id')
+        
+        return users, movies, ratings, movie_targets, tmdb_full
+    except Exception as e:
+        st.error(f"Lỗi khi tải dữ liệu: {str(e)}")
+        return None, None, None, None, None
+
+# Tải dữ liệu
+with st.spinner('Đang tải dữ liệu...'):
+    users, movies, ratings, movie_targets, tmdb_full = load_data()
+
+if users is None:
+    st.error("Không thể tải dữ liệu. Vui lòng kiểm tra đường dẫn file.")
+    st.stop()
+
+# Header
+st.markdown('<h1 class="main-header">🎬 MovieLens Analytics Dashboard</h1>', unsafe_allow_html=True)
+st.markdown("### Phân tích các yếu tố ảnh hưởng đến rating người dùng trên MovieLens")
+
+# Sidebar
+with st.sidebar:
+    st.image("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400", use_container_width=True)
+    st.markdown("## 📊 Điều khiển Dashboard")
+    
+    analysis_type = st.selectbox(
+        "Chọn loại phân tích:",
+        ["Tổng quan", "Phân tích Users", "Phân tích Movies", "Phân tích Ratings", "Phân tích TMDb"]
+    )
+    
+    st.markdown("---")
+    st.markdown("### 📈 Thống kê nhanh")
+    st.metric("Tổng Users", f"{len(users):,}")
+    st.metric("Tổng Movies", f"{len(movies):,}")
+    st.metric("Tổng Ratings", f"{len(ratings):,}")
+    st.metric("Tổng TMDb Movies", f"{len(tmdb_full):,}")
+
+# Tabs chính
+if analysis_type == "Tổng quan":
+    st.markdown("## 📋 Tổng quan Dữ liệu")
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        st.markdown("""
+        <div class="metric-card">
+            <h2>👥</h2>
+            <h3>{:,}</h3>
+            <p>Người dùng</p>
+        </div>
+        """.format(len(users)), unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown("""
+        <div class="metric-card">
+            <h2>🎥</h2>
+            <h3>{:,}</h3>
+            <p>Phim</p>
+        </div>
+        """.format(len(movies)), unsafe_allow_html=True)
+    
+    with col3:
+        st.markdown("""
+        <div class="metric-card">
+            <h2>⭐</h2>
+            <h3>{:,}</h3>
+            <p>Đánh giá</p>
+        </div>
+        """.format(len(ratings)), unsafe_allow_html=True)
+    
+    with col4:
+        avg_rating = ratings['Rating'].mean()
+        st.markdown("""
+        <div class="metric-card">
+            <h2>📊</h2>
+            <h3>{:.2f}</h3>
+            <p>Rating TB</p>
+        </div>
+        """.format(avg_rating), unsafe_allow_html=True)
+    
+    st.markdown("---")
+    
+    # Biểu đồ tổng quan
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("### 📊 Phân bố Rating")
+        rating_dist = ratings['Rating'].value_counts().sort_index()
+        fig = px.bar(
+            x=rating_dist.index, 
+            y=rating_dist.values,
+            labels={'x': 'Rating', 'y': 'Số lượng'},
+            color=rating_dist.values,
+            color_continuous_scale='viridis'
+        )
+        fig.update_layout(showlegend=False, height=400)
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with col2:
+        st.markdown("### 👥 Phân bố Giới tính")
+        gender_dist = users['Gender'].value_counts()
+        fig = px.pie(
+            values=gender_dist.values, 
+            names=gender_dist.index,
+            color_discrete_sequence=['#667eea', '#764ba2']
+        )
+        fig.update_layout(height=400)
+        st.plotly_chart(fig, use_container_width=True)
+    
+    # Top movies
+    st.markdown("### 🏆 Top 10 Phim có Rating cao nhất")
+    top_movies = movie_targets.nlargest(10, 'avg_rating')
+    top_movies = top_movies.merge(movies[['MovieID', 'Title']], on='MovieID')
+    
+    fig = px.bar(
+        top_movies, 
+        x='avg_rating', 
+        y='Title',
+        orientation='h',
+        color='avg_rating',
+        color_continuous_scale='plasma',
+        labels={'avg_rating': 'Rating TB', 'Title': 'Phim'}
+    )
+    fig.update_layout(height=400, yaxis={'categoryorder':'total ascending'})
+    st.plotly_chart(fig, use_container_width=True)
+
+elif analysis_type == "Phân tích Users":
+    st.markdown("## 👥 Phân tích Người dùng")
+    
+    tab1, tab2, tab3 = st.tabs(["Thống kê cơ bản", "Phân tích theo nhóm tuổi", "Phân tích nghề nghiệp"])
+    
+    with tab1:
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("### 📊 Phân bố Độ tuổi")
+            age_dist = users['Age'].value_counts().sort_index()
+            fig = px.bar(
+                x=age_dist.index, 
+                y=age_dist.values,
+                labels={'x': 'Nhóm tuổi', 'y': 'Số lượng'},
+                color=age_dist.values,
+                color_continuous_scale='blues'
+            )
+            st.plotly_chart(fig, use_container_width=True)
+        
+        with col2:
+            st.markdown("### 💼 Top 10 Nghề nghiệp")
+            occ_dist = users['Occupation'].value_counts().head(10)
+            fig = px.pie(
+                values=occ_dist.values, 
+                names=occ_dist.index,
+                color_discrete_sequence=px.colors.sequential.RdBu
+            )
+            st.plotly_chart(fig, use_container_width=True)
+    
+    with tab2:
+        st.markdown("### 📈 Rating trung bình theo Nhóm tuổi")
+        user_ratings = ratings.merge(users[['UserID', 'Age', 'Gender']], on='UserID')
+        age_rating = user_ratings.groupby('Age')['Rating'].mean().reset_index()
+        
+        fig = px.line(
+            age_rating, 
+            x='Age', 
+            y='Rating',
+            markers=True,
+            labels={'Age': 'Nhóm tuổi', 'Rating': 'Rating TB'}
+        )
+        fig.update_traces(line_color='#667eea', line_width=3)
+        st.plotly_chart(fig, use_container_width=True)
+        
+        st.markdown("### 📊 So sánh Rating theo Giới tính và Độ tuổi")
+        gender_age_rating = user_ratings.groupby(['Age', 'Gender'])['Rating'].mean().reset_index()
+        
+        fig = px.bar(
+            gender_age_rating, 
+            x='Age', 
+            y='Rating',
+            color='Gender',
+            barmode='group',
+            color_discrete_sequence=['#667eea', '#764ba2']
+        )
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with tab3:
+        st.markdown("### 💼 Rating trung bình theo Nghề nghiệp")
+        occ_rating = user_ratings.groupby('Occupation')['Rating'].mean().sort_values(ascending=False).head(15)
+        
+        fig = px.bar(
+            x=occ_rating.values, 
+            y=occ_rating.index,
+            orientation='h',
+            color=occ_rating.values,
+            color_continuous_scale='viridis',
+            labels={'x': 'Rating TB', 'y': 'Nghề nghiệp'}
+        )
+        fig.update_layout(yaxis={'categoryorder':'total ascending'})
+        st.plotly_chart(fig, use_container_width=True)
+
+elif analysis_type == "Phân tích Movies":
+    st.markdown("## 🎥 Phân tích Phim")
+    
+    tab1, tab2 = st.tabs(["Thống kê Genres", "Top Phim"])
+    
+    with tab1:
+        st.markdown("### 🎭 Phân bố Thể loại Phim")
+        
+        # Tách genres
+        genres_list = []
+        for genres in movies['Genres'].dropna():
+            genres_list.extend(genres.split('|'))
+        
+        genre_counts = pd.Series(genres_list).value_counts()
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            fig = px.bar(
+                x=genre_counts.index, 
+                y=genre_counts.values,
+                labels={'x': 'Thể loại', 'y': 'Số lượng phim'},
+                color=genre_counts.values,
+                color_continuous_scale='sunset'
+            )
+            fig.update_layout(xaxis_tickangle=-45)
+            st.plotly_chart(fig, use_container_width=True)
+        
+        with col2:
+            fig = px.pie(
+                values=genre_counts.values, 
+                names=genre_counts.index,
+                color_discrete_sequence=px.colors.sequential.RdBu
+            )
+            st.plotly_chart(fig, use_container_width=True)
+        
+        # Rating theo genre
+        st.markdown("### ⭐ Rating trung bình theo Thể loại")
+        movies_with_ratings = movies.merge(movie_targets, on='MovieID')
+        
+        genre_ratings = []
+        for _, row in movies_with_ratings.iterrows():
+            for genre in row['Genres'].split('|'):
+                genre_ratings.append({
+                    'Genre': genre,
+                    'Rating': row['avg_rating']
+                })
+        
+        genre_ratings_df = pd.DataFrame(genre_ratings)
+        genre_avg = genre_ratings_df.groupby('Genre')['Rating'].mean().sort_values(ascending=False)
+        
+        fig = px.bar(
+            x=genre_avg.values, 
+            y=genre_avg.index,
+            orientation='h',
+            color=genre_avg.values,
+            color_continuous_scale='plasma',
+            labels={'x': 'Rating TB', 'y': 'Thể loại'}
+        )
+        fig.update_layout(yaxis={'categoryorder':'total ascending'})
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with tab2:
+        st.markdown("### 🏆 Top Phim")
+        
+        filter_type = st.radio(
+            "Lọc theo:",
+            ["Rating cao nhất", "Nhiều đánh giá nhất", "Phổ biến nhất"]
+        )
+        
+        top_n = st.slider("Số lượng phim hiển thị:", 5, 20, 10)
+        
+        if filter_type == "Rating cao nhất":
+            top = movie_targets[movie_targets['rating_count'] >= 50].nlargest(top_n, 'avg_rating')
+            metric = 'avg_rating'
+            label = 'Rating TB'
+        elif filter_type == "Nhiều đánh giá nhất":
+            top = movie_targets.nlargest(top_n, 'rating_count')
+            metric = 'rating_count'
+            label = 'Số đánh giá'
+        else:
+            top = movie_targets.nlargest(top_n, 'rating_count')
+            metric = 'avg_rating'
+            label = 'Rating TB'
+        
+        top = top.merge(movies[['MovieID', 'Title']], on='MovieID')
+        
+        fig = px.bar(
+            top, 
+            x=metric, 
+            y='Title',
+            orientation='h',
+            color=metric,
+            color_continuous_scale='viridis',
+            labels={metric: label, 'Title': 'Phim'}
+        )
+        fig.update_layout(height=500, yaxis={'categoryorder':'total ascending'})
+        st.plotly_chart(fig, use_container_width=True)
+
+elif analysis_type == "Phân tích Ratings":
+    st.markdown("## ⭐ Phân tích Đánh giá")
+    
+    tab1, tab2, tab3 = st.tabs(["Phân bố Rating", "Thời gian", "Tương quan"])
+    
+    with tab1:
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("### 📊 Histogram Rating")
+            fig = px.histogram(
+                ratings, 
+                x='Rating',
+                nbins=5,
+                color_discrete_sequence=['#667eea']
+            )
+            fig.update_layout(showlegend=False)
+            st.plotly_chart(fig, use_container_width=True)
+        
+        with col2:
+            st.markdown("### 📈 Boxplot Rating")
+            fig = px.box(
+                ratings, 
+                y='Rating',
+                color_discrete_sequence=['#764ba2']
+            )
+            st.plotly_chart(fig, use_container_width=True)
+        
+        st.markdown("### 📉 Phân bố số lượng Rating trên mỗi phim")
+        rating_counts = movie_targets['rating_count']
+        
+        fig = px.histogram(
+            x=rating_counts,
+            nbins=50,
+            labels={'x': 'Số lượng rating', 'y': 'Số phim'},
+            color_discrete_sequence=['#667eea']
+        )
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with tab2:
+        st.markdown("### 📅 Rating theo Thời gian")
+        ratings_time = ratings.copy()
+        ratings_time['Date'] = pd.to_datetime(ratings_time['Timestamp'], unit='s')
+        ratings_time['YearMonth'] = ratings_time['Date'].dt.to_period('M').astype(str)
+        
+        time_rating = ratings_time.groupby('YearMonth')['Rating'].agg(['mean', 'count']).reset_index()
+        
+        fig = make_subplots(specs=[[{"secondary_y": True}]])
+        
+        fig.add_trace(
+            go.Scatter(x=time_rating['YearMonth'], y=time_rating['mean'], name="Rating TB", line=dict(color='#667eea', width=3)),
+            secondary_y=False,
+        )
+        
+        fig.add_trace(
+            go.Bar(x=time_rating['YearMonth'], y=time_rating['count'], name="Số lượng", marker_color='#764ba2', opacity=0.3),
+            secondary_y=True,
+        )
+        
+        fig.update_xaxes(title_text="Thời gian")
+        fig.update_yaxes(title_text="Rating TB", secondary_y=False)
+        fig.update_yaxes(title_text="Số lượng rating", secondary_y=True)
+        fig.update_layout(height=500)
+        
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with tab3:
+        st.markdown("### 🔗 Ma trận Tương quan")
+        
+        # Chuẩn bị dữ liệu
+        user_ratings = ratings.merge(users[['UserID', 'Age', 'Gender', 'Occupation']], on='UserID')
+        user_ratings['Gender_num'] = user_ratings['Gender'].map({'M': 1, 'F': 0})
+        
+        corr_data = user_ratings[['Rating', 'Age', 'Gender_num', 'Occupation']].corr()
+        
+        fig = px.imshow(
+            corr_data,
+            text_auto='.2f',
+            color_continuous_scale='RdBu',
+            aspect='auto'
+        )
+        fig.update_layout(height=500)
+        st.plotly_chart(fig, use_container_width=True)
+
+elif analysis_type == "Phân tích TMDb":
+    st.markdown("## 🎬 Phân tích TMDb Dataset")
+    
+    tab1, tab2, tab3 = st.tabs(["Thống kê cơ bản", "Phân tích Budget & Revenue", "Phân tích Popularity"])
+    
+    with tab1:
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            st.metric("Tổng phim", f"{len(tmdb_full):,}")
+            st.metric("Budget TB", f"${tmdb_full['budget'].mean()/1e6:.1f}M")
+        
+        with col2:
+            st.metric("Revenue TB", f"${tmdb_full['revenue'].mean()/1e6:.1f}M")
+            st.metric("Runtime TB", f"{tmdb_full['runtime'].mean():.0f} phút")
+        
+        with col3:
+            st.metric("Vote Average TB", f"{tmdb_full['vote_average'].mean():.2f}")
+            st.metric("Popularity TB", f"{tmdb_full['popularity'].mean():.1f}")
+        
+        st.markdown("### 🌍 Phân bố Ngôn ngữ")
+        lang_dist = tmdb_full['original_language'].value_counts().head(10)
+        
+        fig = px.bar(
+            x=lang_dist.index, 
+            y=lang_dist.values,
+            labels={'x': 'Ngôn ngữ', 'y': 'Số lượng phim'},
+            color=lang_dist.values,
+            color_continuous_scale='viridis'
+        )
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with tab2:
+        st.markdown("### 💰 Scatter Plot: Budget vs Revenue")
+        
+        tmdb_filtered = tmdb_full[(tmdb_full['budget'] > 0) & (tmdb_full['revenue'] > 0)]
+        
+        fig = px.scatter(
+            tmdb_filtered,
+            x='budget',
+            y='revenue',
+            color='vote_average',
+            size='popularity',
+            hover_data=['title_x'],
+            color_continuous_scale='viridis',
+            labels={'budget': 'Budget (USD)', 'revenue': 'Revenue (USD)'}
+        )
+        fig.update_layout(height=600)
+        st.plotly_chart(fig, use_container_width=True)
+        
+        st.markdown("### 📊 Top 10 phim có Revenue cao nhất")
+        top_revenue = tmdb_full.nlargest(10, 'revenue')[['title_x', 'revenue', 'budget']]
+        
+        fig = px.bar(
+            top_revenue,
+            x='revenue',
+            y='title_x',
+            orientation='h',
+            color='revenue',
+            color_continuous_scale='plasma',
+            labels={'revenue': 'Revenue (USD)', 'title_x': 'Phim'}
+        )
+        fig.update_layout(yaxis={'categoryorder':'total ascending'})
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with tab3:
+        st.markdown("### 🔥 Top 20 phim Phổ biến nhất")
+        top_pop = tmdb_full.nlargest(20, 'popularity')[['title_x', 'popularity', 'vote_average']]
+        
+        fig = px.bar(
+            top_pop,
+            x='popularity',
+            y='title_x',
+            orientation='h',
+            color='vote_average',
+            color_continuous_scale='sunset',
+            labels={'popularity': 'Popularity', 'title_x': 'Phim', 'vote_average': 'Vote Avg'}
+        )
+        fig.update_layout(height=600, yaxis={'categoryorder':'total ascending'})
+        st.plotly_chart(fig, use_container_width=True)
+
+# Footer
+st.markdown("---")
+st.markdown("""
+    <div style='text-align: center; color: #666;'>
+        <p>📊 MovieLens Analytics Dashboard | Phân tích dữ liệu MovieLens 1M & TMDb 5000</p>
+        <p>Được phát triển với ❤️ bằng Streamlit</p>
+    </div>
+""", unsafe_allow_html=True)
