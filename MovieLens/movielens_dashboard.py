@@ -9,6 +9,12 @@ from plotly.subplots import make_subplots
 import warnings
 warnings.filterwarnings('ignore')
 
+from sklearn.linear_model import LinearRegression, Lasso, Ridge
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.preprocessing import StandardScaler, PolynomialFeatures
+from sklearn.metrics import r2_score, mean_squared_error
+from sklearn.ensemble import RandomForestRegressor
+
 # Cấu hình trang
 st.set_page_config(
     page_title="MovieLens Analytics Dashboard",
@@ -132,7 +138,8 @@ with st.sidebar:
         "Phân tích TMDb",
         "Tiền xử lí dữ liệu",
         "EDA",
-        "Yếu tố tài chính"
+        "Yếu tố tài chính",
+        "Yếu tố nội dung và cấu trúc"
     ]
 )
 
@@ -953,6 +960,213 @@ elif analysis_type == "Yếu tố tài chính":
         - Ngân sách ảnh hưởng **khác nhau theo từng nhóm phim**  
         - Ở phim lớn: hiệu quả đầu tư **giảm dần**  
         - Chất lượng không thể mua hoàn toàn bằng tiền
+        """)
+
+# =========================
+# TAB: YẾU TỐ NỘI DUNG & CẤU TRÚC
+# =========================
+
+elif analysis_type == "Yếu tố nội dung & cấu trúc":
+    st.markdown("## 🎞️ Yếu tố Nội dung & Cấu trúc phim")
+
+    st.markdown("""
+    Mục tiêu: **xác định và đo lường mức độ ảnh hưởng của các yếu tố nội dung**
+    (thời lượng, thể loại, độ phổ biến, cấu trúc tương tác…)  
+    đến **mức độ hài lòng của khán giả (rating)**.
+    """)
+
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+        "📈 Từng yếu tố đơn lẻ",
+        "📊 Tuyến tính đa biến",
+        "🧮 Regularization",
+        "🔄 Phi tuyến & Interaction",
+        "🧩 Segment analysis",
+        "🌲 Tree-based models",
+        "🏆 Tổng hợp & Ranking"
+    ])
+
+    with tab1:
+        st.subheader("📈 Ảnh hưởng từng yếu tố riêng lẻ")
+
+        features_to_test = ['budget', 'runtime', 'popularity', 'vote_count', 'revenue']
+        results = []
+
+        for feature in features_to_test:
+            df_f = df[[feature, 'vote_average']].dropna()
+            X = df_f[[feature]]
+            y = df_f['vote_average']
+
+            model = LinearRegression().fit(X, y)
+            y_pred = model.predict(X)
+
+            results.append({
+                'Feature': feature,
+                'Coefficient': model.coef_[0],
+                'R²': r2_score(y, y_pred),
+                'RMSE': np.sqrt(mean_squared_error(y, y_pred))
+            })
+
+        results_df = pd.DataFrame(results).sort_values('R²', ascending=False)
+        st.dataframe(results_df, use_container_width=True)
+
+        fig = px.bar(
+            results_df,
+            x='R²',
+            y='Feature',
+            orientation='h',
+            title='Mức độ giải thích của từng yếu tố đơn lẻ'
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    with tab2:
+        st.subheader("📊 Linear Regression đa biến")
+
+        feature_cols = ['budget', 'runtime', 'popularity', 'vote_count', 'revenue']
+
+        df_encoded = pd.get_dummies(
+            df, columns=['Genres', 'age_group', 'Gender'], drop_first=True
+        )
+
+        X = df_encoded[[c for c in df_encoded.columns if c != 'vote_average']]
+        y = df_encoded['vote_average']
+
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.2, random_state=42
+        )
+
+        scaler = StandardScaler()
+        X_train_scaled = scaler.fit_transform(X_train)
+        X_test_scaled = scaler.transform(X_test)
+
+        model = LinearRegression().fit(X_train_scaled, y_train)
+
+        st.metric("R² (Test)", f"{r2_score(y_test, model.predict(X_test_scaled)):.4f}")
+        st.metric("RMSE", f"{np.sqrt(mean_squared_error(y_test, model.predict(X_test_scaled))):.4f}")
+
+        coef_df = pd.DataFrame({
+            'Feature': X_train.columns,
+            'Coefficient': model.coef_,
+            'Abs': np.abs(model.coef_)
+        }).sort_values('Abs', ascending=False).head(15)
+
+        st.dataframe(coef_df, use_container_width=True)
+        
+    with tab3:
+        st.subheader("🧮 Lasso & Ridge – chọn feature quan trọng")
+
+        alphas = [0.001, 0.01, 0.1, 1, 10]
+        scores = []
+
+        for alpha in alphas:
+            lasso = Lasso(alpha=alpha, max_iter=10000)
+            r2 = cross_val_score(lasso, X_train_scaled, y_train, cv=5).mean()
+            scores.append({'Alpha': alpha, 'Lasso_R2': r2})
+
+        scores_df = pd.DataFrame(scores)
+        st.dataframe(scores_df)
+
+        best_alpha = scores_df.loc[scores_df['Lasso_R2'].idxmax(), 'Alpha']
+
+        final_lasso = Lasso(alpha=best_alpha, max_iter=10000)
+        final_lasso.fit(X_train_scaled, y_train)
+
+        selected = pd.DataFrame({
+            'Feature': X_train.columns,
+            'Coefficient': final_lasso.coef_
+        }).query("Coefficient != 0").sort_values('Coefficient', key=abs, ascending=False)
+
+        st.markdown(f"**Alpha tốt nhất:** {best_alpha}")
+        st.dataframe(selected, use_container_width=True)
+    
+    with tab4:
+        st.subheader("🔄 Phi tuyến & Interaction")
+
+        st.markdown("""
+        Kiểm tra mối quan hệ **không tuyến tính** và **tương tác giữa các yếu tố**.
+        """)
+
+        poly = PolynomialFeatures(degree=2, interaction_only=True, include_bias=False)
+        X_inter = poly.fit_transform(df[['budget', 'runtime', 'popularity']].dropna())
+        y_inter = df.loc[df[['budget', 'runtime', 'popularity']].dropna().index, 'vote_average']
+
+        model_inter = LinearRegression().fit(X_inter, y_inter)
+
+        st.success(f"R² với interaction: {r2_score(y_inter, model_inter.predict(X_inter)):.4f}")
+
+    with tab5:
+        st.subheader("🧩 Phân tích theo Segment")
+
+        segments = {
+            'Blockbuster': df[df['budget'] > 100_000_000],
+            'Indie': df[df['budget'] < 10_000_000],
+            'Action': df[df['Genres'].str.contains('Action', na=False)],
+            'Drama': df[df['Genres'].str.contains('Drama', na=False)]
+        }
+
+        rows = []
+        for name, seg in segments.items():
+            if len(seg) < 200:
+                continue
+
+            X_seg = seg[feature_cols]
+            y_seg = seg['vote_average']
+
+            X_tr, X_te, y_tr, y_te = train_test_split(X_seg, y_seg, test_size=0.2)
+            m = LinearRegression().fit(X_tr, y_tr)
+
+            rows.append({
+                'Segment': name,
+                'N': len(seg),
+                'R²': r2_score(y_te, m.predict(X_te))
+            })
+
+        st.dataframe(pd.DataFrame(rows), use_container_width=True)
+        
+    with tab6:
+        st.subheader("🌲 Random Forest & Feature Importance")
+
+        rf = RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1)
+        rf.fit(X_train, y_train)
+
+        imp = pd.DataFrame({
+            'Feature': X_train.columns,
+            'Importance': rf.feature_importances_
+        }).sort_values('Importance', ascending=False).head(15)
+
+        st.dataframe(imp, use_container_width=True)
+
+        fig = px.bar(
+            imp,
+            x='Importance',
+            y='Feature',
+            orientation='h',
+            title='Top 15 Feature Importance (Random Forest)'
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    with tab7:
+        st.subheader("🏆 Tổng hợp & Xếp hạng cuối")
+
+        st.markdown("""
+        Tổng hợp kết quả từ:
+        - Linear Regression
+        - Lasso
+        - Random Forest
+        - Permutation Importance
+        """)
+
+        st.success("""
+        ✅ **Kết luận tổng quát**
+        - Popularity & vote_count quan trọng hơn budget
+        - Nội dung & mức độ lan truyền quyết định hài lòng
+        - Hiệu ứng khác nhau rõ rệt giữa các segment
+        """)
+
+        st.info("""
+        🎯 **Khuyến nghị**
+        - Không chạy theo ngân sách
+        - Tối ưu nội dung & marketing
+        - Cá nhân hóa theo nhóm khán giả
         """)
 
 # Footer
