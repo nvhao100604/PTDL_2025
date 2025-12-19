@@ -722,136 +722,238 @@ elif analysis_type == "EDA":
 # TAB: YẾU TỐ TÀI CHÍNH
 # =========================
 elif analysis_type == "Yếu tố tài chính":
-
-    st.subheader("💰 Phân tích các yếu tố tài chính & Rating")
+    st.markdown("## 💰 Yếu tố Tài chính & Rating MovieLens")
 
     st.markdown("""
-    Tab này phân tích mối quan hệ giữa:
-    - **Ngân sách sản xuất (Budget)**
-    - **Doanh thu phòng vé (Revenue)**
-    - **Rating trung bình của người dùng MovieLens**
+    Phân tích mối quan hệ giữa **Ngân sách sản xuất (Budget)**,
+    **Doanh thu (Revenue)** và **Rating trung bình** của phim do người dùng MovieLens đánh giá.
     """)
 
-    # Chuẩn hóa title MovieLens
-    movies['Title_clean'] = movies['Title'].str.replace(
-    r"\s*\(\d{4}\)", "", regex=True
-    ).str.strip()
+    # ======================================================
+    # 1. CHUẨN BỊ DỮ LIỆU (PHẠM VI PHIM)
+    # ======================================================
     
-    # ======================
-    # 1. Chuẩn bị dữ liệu
-    # ======================
-    finance_df = tmdb_full[['movie_id', 'original_title', 'budget', 'revenue']]
-    finance_df = finance_df[finance_df['budget'] > 0]
-    finance_df = finance_df[finance_df['revenue'] > 0]
-    finance_df = finance_df.rename(columns={'original_title': 'tmdb_title'})
-    finance_df['tmdb_title_clean'] = finance_df['tmdb_title'].str.strip()
-
-
-    # Map MovieLens ↔ TMDb theo title
-    movies_finance = pd.merge(
-        movies,
-        finance_df,
-        left_on='Title_clean',
-        right_on='tmdb_title_clean',
-        how='inner'
+    # ======================================================
+    # Chuẩn bị dữ liệu (CHỈ CHẠY 1 LẦN)
+    # ======================================================
+    movies_tmp = movies.copy()
+    movies_tmp['clean_title'] = (
+        movies_tmp['Title']
+        .str.replace(r"\s\(\d{4}\)", "", regex=True)
+        .str.lower()
     )
 
-    movies_finance = pd.merge(
-        movies_finance,
-        movie_targets,
-        on='MovieID'
+    tmdb_tmp = tmdb_full.copy()
+    tmdb_tmp['clean_title'] = tmdb_tmp['original_title'].str.lower()
+
+    full_data = (
+        movies_tmp
+        .merge(movie_targets, on='MovieID')
+        .merge(
+            tmdb_tmp[['clean_title', 'budget', 'revenue', 'runtime', 'popularity']],
+            on='clean_title',
+            how='inner'
+        )
     )
 
-    st.metric("Số phim dùng cho phân tích tài chính", f"{len(movies_finance):,}")
+    full_data = full_data[
+        (full_data['budget'] > 10_000) &
+        (full_data['revenue'] > 10_000)
+    ].copy()
+    
+    df_movie_scope = full_data.drop_duplicates(subset=['MovieID']).copy()
 
-    st.markdown("---")
-    st.markdown("### 1️⃣ Thống kê mô tả Budget & Revenue")
+    # ======================================================
+    # TABS CON
+    # ======================================================
+    tab_corr, tab_viz, tab_cluster, tab_reg = st.tabs([
+        "📈 Phân tích tương quan",
+        "📊 Trực quan hóa",
+        "🧩 Phân cụm K-Means",
+        "📐 Linear Regression theo cụm"
+    ])
 
-    st.dataframe(
-        movies_finance[['budget', 'revenue', 'avg_rating', 'rating_count']].describe()
-    )
+    # ======================================================
+    # TAB 1 — PHÂN TÍCH TƯƠNG QUAN
+    # ======================================================
+    with tab_corr:
+        st.subheader("📈 Hệ số tương quan Pearson")
 
-    # ======================
-    # 2. Budget vs Rating
-    # ======================
-    st.markdown("---")
-    st.markdown("### 2️⃣ Quan hệ giữa Budget và Rating")
+        corr_budget = df_movie_scope['budget'].corr(df_movie_scope['avg_rating'])
+        corr_revenue = df_movie_scope['revenue'].corr(df_movie_scope['avg_rating'])
 
-    st.scatter_chart(
-        movies_finance,
-        x="budget",
-        y="avg_rating"
-    )
+        col1, col2 = st.columns(2)
+        col1.metric("Corr(Budget, Rating)", f"{corr_budget:.4f}")
+        col2.metric("Corr(Revenue, Rating)", f"{corr_revenue:.4f}")
 
-    st.markdown("""
-    📌 **Nhận xét:**  
-    - Ngân sách lớn **không đảm bảo** rating cao  
-    - Tồn tại hiện tượng **hiệu quả giảm dần**
-    """)
+        if corr_budget < 0:
+            st.warning("👉 Ngân sách càng cao, rating trung bình **có xu hướng giảm**.")
+        else:
+            st.success("👉 Ngân sách càng cao, rating trung bình **có xu hướng tăng**.")
 
-    # ======================
-    # 3. Revenue vs Rating
-    # ======================
-    st.markdown("---")
-    st.markdown("### 3️⃣ Quan hệ giữa Revenue và Rating")
+        st.markdown("""
+        **Nhận xét:**  
+        - Tương quan yếu → tiền **không đảm bảo** chất lượng  
+        - Cần xem xét xu hướng phi tuyến
+        """)
 
-    st.scatter_chart(
-        movies_finance,
-        x="revenue",
-        y="avg_rating"
-    )
+    # ======================================================
+    # TAB 2 — TRỰC QUAN HÓA
+    # ======================================================
+    with tab_viz:
+        st.subheader("📊 Budget / Revenue vs Rating")
 
-    st.markdown("""
-    📌 **Nhận xét:**  
-    - Phim doanh thu cao thường có rating **ổn định hơn**
-    - Tuy nhiên vẫn tồn tại nhiều ngoại lệ
-    """)
+        col1, col2 = st.columns(2)
 
-    # ======================
-    # 4. ROI vs Rating
-    # ======================
-    st.markdown("---")
-    st.markdown("### 4️⃣ ROI (Revenue / Budget) và Rating")
+        with col1:
+            fig = px.scatter(
+                df_movie_scope,
+                x='budget',
+                y='avg_rating',
+                log_x=True,
+                opacity=0.4,
+                trendline='lowess',
+                labels={'budget': 'Budget (log)', 'avg_rating': 'Rating'}
+            )
+            st.plotly_chart(fig, use_container_width=True)
 
-    movies_finance['ROI'] = movies_finance['revenue'] / movies_finance['budget']
+        with col2:
+            fig = px.scatter(
+                df_movie_scope,
+                x='revenue',
+                y='avg_rating',
+                log_x=True,
+                opacity=0.4,
+                trendline='lowess',
+                labels={'revenue': 'Revenue (log)', 'avg_rating': 'Rating'}
+            )
+            st.plotly_chart(fig, use_container_width=True)
 
-    st.scatter_chart(
-        movies_finance,
-        x="ROI",
-        y="avg_rating"
-    )
+        # Phân nhóm ngân sách
+        bins = [0, 10_000_000, 50_000_000, 100_000_000, float('inf')]
+        labels = [
+            'Micro / Indie (<10M)',
+            'Mid (10–50M)',
+            'High (50–100M)',
+            'Blockbuster (>100M)'
+        ]
 
-    st.markdown("""
-    📌 **Nhận xét:**  
-    - ROI cao **không đồng nghĩa** rating cao  
-    - Nhiều phim chi phí thấp – hiệu quả tốt nhưng rating trung bình
-    """)
+        df_movie_scope['Budget_Category'] = pd.cut(
+            df_movie_scope['budget'],
+            bins=bins,
+            labels=labels
+        )
 
-    # ======================
-    # 5. Phân nhóm ngân sách
-    # ======================
-    st.markdown("---")
-    st.markdown("### 5️⃣ Phân tích Rating theo nhóm ngân sách")
+        group_stats = (
+            df_movie_scope
+            .groupby('Budget_Category')['avg_rating']
+            .agg(['mean', 'count'])
+            .reset_index()
+        )
 
-    movies_finance['budget_group'] = pd.qcut(
-        movies_finance['budget'],
-        q=4,
-        labels=['Thấp', 'Trung bình', 'Cao', 'Rất cao']
-    )
+        st.markdown("### 📦 Điểm trung bình theo nhóm ngân sách")
+        st.dataframe(group_stats, use_container_width=True)
 
-    budget_group_rating = movies_finance.groupby('budget_group')['avg_rating'].mean().reset_index()
+        fig = px.box(
+            df_movie_scope,
+            x='Budget_Category',
+            y='avg_rating',
+            labels={'avg_rating': 'Rating'}
+        )
+        st.plotly_chart(fig, use_container_width=True)
 
-    st.bar_chart(
-        budget_group_rating,
-        x="budget_group",
-        y="avg_rating"
-    )
+    # ======================================================
+    # TAB 3 — PHÂN CỤM K-MEANS
+    # ======================================================
+    with tab_cluster:
+        st.subheader("🧩 Phân cụm phim bằng K-Means")
 
-    st.markdown("""
-    📌 **Kết luận quan trọng:**  
-    - Rating trung bình **không tăng tuyến tính** theo ngân sách  
-    - Sau một ngưỡng nhất định, tăng budget **không mang lại cải thiện rõ rệt**
-    """)
+        from sklearn.preprocessing import StandardScaler
+        from sklearn.cluster import KMeans
+        from sklearn.decomposition import PCA
+
+        features = df_movie_scope[
+            ['budget', 'revenue', 'runtime', 'popularity']
+        ].dropna()
+
+        scaler = StandardScaler()
+        X_scaled = scaler.fit_transform(features)
+
+        kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
+        clusters = kmeans.fit_predict(X_scaled)
+
+        df_cluster = df_movie_scope.loc[features.index].copy()
+        df_cluster['cluster'] = clusters
+
+        cluster_desc = (
+            df_cluster
+            .groupby('cluster')[['avg_rating', 'budget', 'revenue', 'popularity', 'runtime']]
+            .mean()
+            .reset_index()
+        )
+
+        st.markdown("### 📊 Đặc trưng trung bình mỗi cụm")
+        st.dataframe(cluster_desc, use_container_width=True)
+
+        pca = PCA(n_components=2)
+        X_pca = pca.fit_transform(X_scaled)
+
+        fig = px.scatter(
+            x=X_pca[:, 0],
+            y=X_pca[:, 1],
+            color=df_cluster['cluster'].astype(str),
+            labels={'x': 'PCA 1', 'y': 'PCA 2'},
+            title="K-Means Clustering (PCA)"
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    # ======================================================
+    # TAB 4 — LINEAR REGRESSION THEO CỤM
+    # ======================================================
+    with tab_reg:
+        st.subheader("📐 Hồi quy tuyến tính theo từng cụm")
+
+        import statsmodels.api as sm
+        import numpy as np
+
+        df_cluster['log_budget'] = np.log1p(df_cluster['budget'])
+
+        rows = []
+
+        for c in sorted(df_cluster['cluster'].unique()):
+            sub = df_cluster[df_cluster['cluster'] == c]
+
+            X = sm.add_constant(sub[['log_budget']])
+            y = sub['avg_rating']
+
+            model = sm.OLS(y, X).fit()
+
+            rows.append({
+                'Cluster': c,
+                'Số phim': len(sub),
+                'Hệ số log(Budget)': model.params['log_budget'],
+                'p-value': model.pvalues['log_budget'],
+                'R²': model.rsquared
+            })
+
+        coef_df = pd.DataFrame(rows)
+        st.dataframe(coef_df, use_container_width=True)
+
+        fig = px.bar(
+            coef_df,
+            x='Cluster',
+            y='Hệ số log(Budget)',
+            color='Cluster',
+            title='Ảnh hưởng của Budget lên Rating theo từng cụm'
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+        st.success("""
+        ✅ **Kết luận:**  
+        - Ngân sách ảnh hưởng **khác nhau theo từng nhóm phim**  
+        - Ở phim lớn: hiệu quả đầu tư **giảm dần**  
+        - Chất lượng không thể mua hoàn toàn bằng tiền
+        """)
 
 # Footer
 st.markdown("---")
