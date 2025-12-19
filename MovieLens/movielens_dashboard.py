@@ -79,41 +79,84 @@ def get_top_actors(text):
 
 @st.cache_data
 def load_data():
-    """Tải và xử lý dữ liệu"""
     try:
-        # Đọc dữ liệu MovieLens
+        # ===== MovieLens =====
         u_cols = ['UserID', 'Gender', 'Age', 'Occupation', 'Zip-code']
         m_cols = ['MovieID', 'Title', 'Genres']
         r_cols = ['UserID', 'MovieID', 'Rating', 'Timestamp']
-        
-        users = pd.read_csv('datasets/movie_len_1M/users.dat', sep='::', names=u_cols, encoding='latin-1', engine='python')
-        movies = pd.read_csv('datasets/movie_len_1M/movies.dat', sep='::', names=m_cols, encoding='latin-1', engine='python')
-        ratings = pd.read_csv('datasets/movie_len_1M/ratings.dat', sep='::', names=r_cols, encoding='latin-1', engine='python')
-        
-        # Tính điểm trung bình
-        movie_targets = ratings.groupby('MovieID')['Rating'].agg(['mean', 'count']).reset_index()
-        movie_targets.columns = ['MovieID', 'avg_rating', 'rating_count']
-        
-        # Đọc dữ liệu TMDb
-        try:
-            tmdb_cred = pd.read_csv('datasets/tmdb_5000/tmdb_5000_credits.csv', encoding='utf-8')
-            tmdb_mov = pd.read_csv('datasets/tmdb_5000/tmdb_5000_movies.csv', encoding='utf-8')
-        except:
-            tmdb_cred = pd.read_csv('datasets/tmdb_5000/tmdb_5000_credits.csv', encoding='latin-1')
-            tmdb_mov = pd.read_csv('datasets/tmdb_5000/tmdb_5000_movies.csv', encoding='latin-1')
-        
+
+        users = pd.read_csv(
+            'datasets/movie_len_1M/users.dat',
+            sep='::', names=u_cols, engine='python', encoding='latin-1'
+        )
+        movies = pd.read_csv(
+            'datasets/movie_len_1M/movies.dat',
+            sep='::', names=m_cols, engine='python', encoding='latin-1'
+        )
+        ratings = pd.read_csv(
+            'datasets/movie_len_1M/ratings.dat',
+            sep='::', names=r_cols, engine='python', encoding='latin-1'
+        )
+
+        movie_targets = (
+            ratings
+            .groupby('MovieID')['Rating']
+            .agg(['mean', 'count'])
+            .reset_index()
+            .rename(columns={'mean': 'avg_rating', 'count': 'rating_count'})
+        )
+
+        # ===== TMDB =====
+        tmdb_cred = pd.read_csv('datasets/tmdb_5000/tmdb_5000_credits.csv')
+        tmdb_mov = pd.read_csv('datasets/tmdb_5000/tmdb_5000_movies.csv')
+
         tmdb_cred.columns = ['movie_id', 'title', 'cast', 'crew']
         tmdb_mov = tmdb_mov.rename(columns={'id': 'movie_id'})
-        tmdb_full = pd.merge(tmdb_mov, tmdb_cred, on='movie_id')
-        
-        return users, movies, ratings, movie_targets, tmdb_full
+
+        tmdb_full = tmdb_mov.merge(tmdb_cred, on='movie_id')
+
+        # ===== TẠO FULL_DATA (CHUẨN) =====
+        movies_tmp = movies.copy()
+        movies_tmp['clean_title'] = (
+            movies_tmp['Title']
+            .str.replace(r"\s\(\d{4}\)", "", regex=True)
+            .str.lower()
+        )
+
+        tmdb_tmp = tmdb_full.copy()
+        tmdb_tmp['clean_title'] = tmdb_tmp['original_title'].str.lower()
+
+        # ====== MERGE ======
+        full_data = (
+            movies_tmp
+            .merge(movie_targets, on='MovieID')
+            .merge(
+                tmdb_tmp[['clean_title', 'budget', 'revenue',
+                        'runtime', 'popularity', 'vote_count', 'vote_average']],
+                on='clean_title',
+                how='inner'
+            )
+        )
+
+        # ====== LỌC CHẤT LƯỢNG DỮ LIỆU (QUAN TRỌNG) ======
+        full_data = full_data[
+            (full_data['vote_count'] > 50) &
+            (full_data['budget'] > 10_000) &
+            (full_data['revenue'] > 10_000)
+        ].copy()
+
+        # ====== 1 PHIM = 1 DÒNG ======
+        full_data = full_data.drop_duplicates(subset=['MovieID'])
+
+        return users, movies, ratings, movie_targets, tmdb_full, full_data  
+
     except Exception as e:
-        st.error(f"Lỗi khi tải dữ liệu: {str(e)}")
-        return None, None, None, None, None
+        st.error(f"Lỗi load dữ liệu: {e}")
+        return [None] * 6
 
 # Tải dữ liệu
 with st.spinner('Đang tải dữ liệu...'):
-    users, movies, ratings, movie_targets, tmdb_full = load_data()
+    users, movies, ratings, movie_targets, tmdb_full, full_data = load_data()
 
 if users is None:
     st.error("Không thể tải dữ liệu. Vui lòng kiểm tra đường dẫn file.")
@@ -244,7 +287,7 @@ if analysis_type == "Tổng quan":
 elif analysis_type == "Phân tích Users":
     st.markdown("## 👥 Phân tích Người dùng")
     
-    tab1, tab2, tab3 = st.tabs(["Thống kê cơ bản", "Phân tích theo nhóm tuổi", "Phân tích nghề nghiệp"])
+    tab1, tab2, tab3 = st.tabs(["Thống kê cơ bản", "Phân tích theo nhóm tuổi"])
     
     with tab1:
         col1, col2 = st.columns(2)
@@ -729,6 +772,11 @@ elif analysis_type == "EDA":
 # TAB: YẾU TỐ TÀI CHÍNH
 # =========================
 elif analysis_type == "Yếu tố tài chính":
+    
+    from sklearn.preprocessing import StandardScaler
+    from sklearn.cluster import KMeans
+    from sklearn.decomposition import PCA
+    
     st.markdown("## 💰 Yếu tố Tài chính & Rating MovieLens")
 
     st.markdown("""
@@ -753,20 +801,13 @@ elif analysis_type == "Yếu tố tài chính":
     tmdb_tmp = tmdb_full.copy()
     tmdb_tmp['clean_title'] = tmdb_tmp['original_title'].str.lower()
 
-    full_data = (
-        movies_tmp
-        .merge(movie_targets, on='MovieID')
-        .merge(
-            tmdb_tmp[['clean_title', 'budget', 'revenue', 'runtime', 'popularity']],
-            on='clean_title',
-            how='inner'
-        )
-    )
+    df_movie_scope = (
+    full_data
+    .query("budget > 10_000 and revenue > 10_000")
+    .drop_duplicates(subset=['MovieID'])
+    .copy()
+)
 
-    full_data = full_data[
-        (full_data['budget'] > 10_000) &
-        (full_data['revenue'] > 10_000)
-    ].copy()
     
     df_movie_scope = full_data.drop_duplicates(subset=['MovieID']).copy()
 
@@ -875,49 +916,110 @@ elif analysis_type == "Yếu tố tài chính":
     with tab_cluster:
         st.subheader("🧩 Phân cụm phim bằng K-Means")
 
-        from sklearn.preprocessing import StandardScaler
-        from sklearn.cluster import KMeans
-        from sklearn.decomposition import PCA
+        st.markdown("""
+        Mục tiêu: Nhóm các bộ phim dựa trên **đặc trưng tài chính & độ phổ biến**
+        để tìm ra các **kiểu phim (movie archetypes)** khác nhau.
+        """)
 
-        features = df_movie_scope[
-            ['budget', 'revenue', 'runtime', 'popularity']
-        ].dropna()
+        # =====================================
+        # 1️⃣ Chuẩn bị dữ liệu
+        # =====================================
+        feature_cols = ['budget', 'revenue', 'runtime', 'popularity']
+        df_km = df_movie_scope[
+            (df_movie_scope['budget'] > 10000) &
+            (df_movie_scope['revenue'] > 10000) &
+            (df_movie_scope['runtime'] > 0) &
+            (df_movie_scope['avg_rating'].notna())
+        ][feature_cols + ['avg_rating']].copy()
+        
+        st.info(f"Số phim dùng để phân cụm: **{len(df_km)}**")
 
+        # =====================================
+        # 2️⃣ Chuẩn hóa dữ liệu
+        # =====================================
         scaler = StandardScaler()
-        X_scaled = scaler.fit_transform(features)
+        X_scaled = scaler.fit_transform(df_km[feature_cols])
 
-        kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
-        clusters = kmeans.fit_predict(X_scaled)
+        # =====================================
+        # 3️⃣ K-Means clustering
+        # =====================================
+        k = 3
+        kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
+        df_km['cluster'] = kmeans.fit_predict(X_scaled)
 
-        df_cluster = df_movie_scope.loc[features.index].copy()
-        df_cluster['cluster'] = clusters
-
+        # =====================================
+        # 4️⃣ Mô tả đặc trưng từng cụm
+        # =====================================
         cluster_desc = (
-            df_cluster
-            .groupby('cluster')[['avg_rating', 'budget', 'revenue', 'popularity', 'runtime']]
-            .mean()
+            df_km
+            .groupby('cluster')
+            .agg({
+                'avg_rating': 'mean',
+                'budget': 'mean',
+                'revenue': 'mean',
+                'popularity': 'mean',
+                'runtime': 'mean'
+            })
+            .round(2)
             .reset_index()
         )
 
-        st.markdown("### 📊 Đặc trưng trung bình mỗi cụm")
+        st.markdown("### 📊 Đặc trưng trung bình của từng cụm")
         st.dataframe(cluster_desc, use_container_width=True)
 
+        # =====================================
+        # 5️⃣ PCA để trực quan hóa
+        # =====================================
         pca = PCA(n_components=2)
         X_pca = pca.fit_transform(X_scaled)
 
+        pca_df = pd.DataFrame({
+            'PCA1': X_pca[:, 0],
+            'PCA2': X_pca[:, 1],
+            'Cluster': df_km['cluster'].astype(str),
+            'Rating': df_km['avg_rating']
+        })
+
         fig = px.scatter(
-            x=X_pca[:, 0],
-            y=X_pca[:, 1],
-            color=df_cluster['cluster'].astype(str),
-            labels={'x': 'PCA 1', 'y': 'PCA 2'},
-            title="K-Means Clustering (PCA)"
+            pca_df,
+            x='PCA1',
+            y='PCA2',
+            color='Cluster',
+            size='Rating',
+            opacity=0.7,
+            labels={'PCA1': 'PCA Component 1', 'PCA2': 'PCA Component 2'},
+            title='K-Means Clustering (PCA Projection)'
         )
+
         st.plotly_chart(fig, use_container_width=True)
+        
+        # 👉 LƯU CHO TAB KHÁC DÙNG
+        st.session_state['df_cluster'] = df_km.copy()
+
+
+        # =====================================
+        # 6️⃣ Nhận xét nhanh
+        # =====================================
+        st.success("""
+        🔍 **Nhận xét:**
+        - Các cụm thể hiện những nhóm phim có mức đầu tư và độ phổ biến khác nhau  
+        - Không phải cụm có ngân sách cao nhất cũng có rating cao nhất  
+        - Cho thấy **hiệu ứng hiệu quả giảm dần của ngân sách**
+        """)
+
 
     # ======================================================
     # TAB 4 — LINEAR REGRESSION THEO CỤM
     # ======================================================
     with tab_reg:
+        
+        if 'df_cluster' not in st.session_state:
+            st.warning("⚠️ Vui lòng chạy tab 'Phân cụm K-Means' trước.")
+            st.stop()
+
+        df_cluster = st.session_state['df_cluster']
+
+        
         st.subheader("📐 Hồi quy tuyến tính theo từng cụm")
 
         import statsmodels.api as sm
@@ -969,11 +1071,12 @@ elif analysis_type == "Yếu tố tài chính":
 elif analysis_type == "Yếu tố nội dung & cấu trúc":
     st.markdown("## 🎞️ Yếu tố Nội dung & Cấu trúc phim")
 
-    st.markdown("""
-    Mục tiêu: **xác định và đo lường mức độ ảnh hưởng của các yếu tố nội dung**
-    (thời lượng, thể loại, độ phổ biến, cấu trúc tương tác…)  
-    đến **mức độ hài lòng của khán giả (rating)**.
-    """)
+    df = full_data.copy()
+
+    target = 'avg_rating'
+    feature_cols = ['budget', 'runtime', 'popularity', 'vote_count', 'revenue']
+
+    df = df[feature_cols + ['Genres', target]].dropna()
 
     tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
         "📈 Từng yếu tố đơn lẻ",
@@ -986,15 +1089,11 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
     ])
 
     with tab1:
-        st.subheader("📈 Ảnh hưởng từng yếu tố riêng lẻ")
-
-        features_to_test = ['budget', 'runtime', 'popularity', 'vote_count', 'revenue']
         results = []
 
-        for feature in features_to_test:
-            df_f = df[[feature, 'vote_average']].dropna()
-            X = df_f[[feature]]
-            y = df_f['vote_average']
+        for feature in feature_cols:
+            X = df[[feature]]
+            y = df[target]
 
             model = LinearRegression().fit(X, y)
             y_pred = model.predict(X)
@@ -1009,93 +1108,45 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
         results_df = pd.DataFrame(results).sort_values('R²', ascending=False)
         st.dataframe(results_df, use_container_width=True)
 
-        fig = px.bar(
-            results_df,
-            x='R²',
-            y='Feature',
-            orientation='h',
-            title='Mức độ giải thích của từng yếu tố đơn lẻ'
-        )
-        st.plotly_chart(fig, use_container_width=True)
 
     with tab2:
-        st.subheader("📊 Linear Regression đa biến")
+        df_enc = pd.get_dummies(df[['Genres']], drop_first=True)
+        X = pd.concat([df[feature_cols], df_enc], axis=1)
+        y = df[target]
 
-        feature_cols = ['budget', 'runtime', 'popularity', 'vote_count', 'revenue']
-
-        df_encoded = pd.get_dummies(
-            df, columns=['Genres', 'age_group', 'Gender'], drop_first=True
-        )
-
-        X = df_encoded[[c for c in df_encoded.columns if c != 'vote_average']]
-        y = df_encoded['vote_average']
-
-        X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.2, random_state=42
-        )
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
         scaler = StandardScaler()
-        X_train_scaled = scaler.fit_transform(X_train)
-        X_test_scaled = scaler.transform(X_test)
+        X_train_s = scaler.fit_transform(X_train)
+        X_test_s = scaler.transform(X_test)
 
-        model = LinearRegression().fit(X_train_scaled, y_train)
+        model = LinearRegression().fit(X_train_s, y_train)
 
-        st.metric("R² (Test)", f"{r2_score(y_test, model.predict(X_test_scaled)):.4f}")
-        st.metric("RMSE", f"{np.sqrt(mean_squared_error(y_test, model.predict(X_test_scaled))):.4f}")
+        st.metric("R² (Test)", f"{r2_score(y_test, model.predict(X_test_s)):.4f}")
 
-        coef_df = pd.DataFrame({
-            'Feature': X_train.columns,
-            'Coefficient': model.coef_,
-            'Abs': np.abs(model.coef_)
-        }).sort_values('Abs', ascending=False).head(15)
-
-        st.dataframe(coef_df, use_container_width=True)
         
     with tab3:
-        st.subheader("🧮 Lasso & Ridge – chọn feature quan trọng")
+        lasso = Lasso(alpha=0.01, max_iter=10000)
+        lasso.fit(X_train_s, y_train)
 
-        alphas = [0.001, 0.01, 0.1, 1, 10]
-        scores = []
-
-        for alpha in alphas:
-            lasso = Lasso(alpha=alpha, max_iter=10000)
-            r2 = cross_val_score(lasso, X_train_scaled, y_train, cv=5).mean()
-            scores.append({'Alpha': alpha, 'Lasso_R2': r2})
-
-        scores_df = pd.DataFrame(scores)
-        st.dataframe(scores_df)
-
-        best_alpha = scores_df.loc[scores_df['Lasso_R2'].idxmax(), 'Alpha']
-
-        final_lasso = Lasso(alpha=best_alpha, max_iter=10000)
-        final_lasso.fit(X_train_scaled, y_train)
-
-        selected = pd.DataFrame({
+        coef = pd.DataFrame({
             'Feature': X_train.columns,
-            'Coefficient': final_lasso.coef_
-        }).query("Coefficient != 0").sort_values('Coefficient', key=abs, ascending=False)
+            'Coefficient': lasso.coef_
+        }).query("Coefficient != 0")
 
-        st.markdown(f"**Alpha tốt nhất:** {best_alpha}")
-        st.dataframe(selected, use_container_width=True)
+        st.dataframe(coef.sort_values('Coefficient', key=abs, ascending=False))
+
     
     with tab4:
-        st.subheader("🔄 Phi tuyến & Interaction")
-
-        st.markdown("""
-        Kiểm tra mối quan hệ **không tuyến tính** và **tương tác giữa các yếu tố**.
-        """)
-
         poly = PolynomialFeatures(degree=2, interaction_only=True, include_bias=False)
-        X_inter = poly.fit_transform(df[['budget', 'runtime', 'popularity']].dropna())
-        y_inter = df.loc[df[['budget', 'runtime', 'popularity']].dropna().index, 'vote_average']
+        X_poly = poly.fit_transform(df[['budget', 'runtime', 'popularity']])
+        y_poly = df[target]
 
-        model_inter = LinearRegression().fit(X_inter, y_inter)
+        model = LinearRegression().fit(X_poly, y_poly)
+        st.success(f"R² interaction: {r2_score(y_poly, model.predict(X_poly)):.4f}")
 
-        st.success(f"R² với interaction: {r2_score(y_inter, model_inter.predict(X_inter)):.4f}")
 
     with tab5:
-        st.subheader("🧩 Phân tích theo Segment")
-
         segments = {
             'Blockbuster': df[df['budget'] > 100_000_000],
             'Indie': df[df['budget'] < 10_000_000],
@@ -1105,11 +1156,11 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
 
         rows = []
         for name, seg in segments.items():
-            if len(seg) < 200:
+            if len(seg) < 100:
                 continue
 
             X_seg = seg[feature_cols]
-            y_seg = seg['vote_average']
+            y_seg = seg[target]
 
             X_tr, X_te, y_tr, y_te = train_test_split(X_seg, y_seg, test_size=0.2)
             m = LinearRegression().fit(X_tr, y_tr)
@@ -1121,11 +1172,10 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
             })
 
         st.dataframe(pd.DataFrame(rows), use_container_width=True)
+
         
     with tab6:
-        st.subheader("🌲 Random Forest & Feature Importance")
-
-        rf = RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1)
+        rf = RandomForestRegressor(n_estimators=200, random_state=42)
         rf.fit(X_train, y_train)
 
         imp = pd.DataFrame({
@@ -1133,16 +1183,8 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
             'Importance': rf.feature_importances_
         }).sort_values('Importance', ascending=False).head(15)
 
-        st.dataframe(imp, use_container_width=True)
+        st.dataframe(imp)
 
-        fig = px.bar(
-            imp,
-            x='Importance',
-            y='Feature',
-            orientation='h',
-            title='Top 15 Feature Importance (Random Forest)'
-        )
-        st.plotly_chart(fig, use_container_width=True)
 
     with tab7:
         st.subheader("🏆 Tổng hợp & Xếp hạng cuối")
