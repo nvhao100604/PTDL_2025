@@ -292,21 +292,7 @@ elif analysis_type == "Phân tích Users":
         )
         st.plotly_chart(fig, use_container_width=True)
     
-    with tab3:
-        st.markdown("### 💼 Rating trung bình theo Nghề nghiệp")
-        occ_rating = user_ratings.groupby('Occupation')['Rating'].mean().sort_values(ascending=False).head(15)
-        
-        fig = px.bar(
-            x=occ_rating.values, 
-            y=occ_rating.index,
-            orientation='h',
-            color=occ_rating.values,
-            color_continuous_scale='viridis',
-            labels={'x': 'Rating TB', 'y': 'Nghề nghiệp'}
-        )
-        fig.update_layout(yaxis={'categoryorder':'total ascending'})
-        st.plotly_chart(fig, use_container_width=True)
-
+    
 elif analysis_type == "Phân tích Movies":
     st.markdown("## 🎥 Phân tích Phim")
     
@@ -556,19 +542,45 @@ elif analysis_type == "Phân tích TMDb":
         st.plotly_chart(fig, use_container_width=True)
     
     with tab3:
-        st.markdown("### 🔥 Top 20 phim Phổ biến nhất")
-        top_pop = tmdb_full.nlargest(20, 'popularity')[['title_x', 'popularity', 'vote_average']]
-        
-        fig = px.bar(
-            top_pop,
-            x='popularity',
-            y='title_x',
-            orientation='h',
-            color='vote_average',
-            color_continuous_scale='sunset',
-            labels={'popularity': 'Popularity', 'title_x': 'Phim', 'vote_average': 'Vote Avg'}
-        )
-        fig.update_layout(height=600, yaxis={'categoryorder':'total ascending'})
+        st.markdown("### 🔥 Top 20 phim Phổ biến nhất (Popularity)")
+
+    # Lọc dữ liệu hợp lệ
+    tmdb_pop = tmdb_full[
+        tmdb_full['popularity'].notna()
+    ]
+
+    top_pop = (
+        tmdb_pop
+        .nlargest(20, 'popularity')
+        [['original_title', 'popularity', 'vote_average']]
+    )
+
+    fig = px.bar(
+        top_pop,
+        x='popularity',
+        y='original_title',
+        orientation='h',
+        color='vote_average',
+        color_continuous_scale='sunset',
+        labels={
+            'popularity': 'Popularity',
+            'original_title': 'Phim',
+            'vote_average': 'Vote Average'
+        }
+    )
+
+    fig.update_layout(
+        height=600,
+        yaxis={'categoryorder': 'total ascending'}
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.markdown("""
+    📌 **Nhận xét:**
+    - Popularity phản ánh **mức độ quan tâm truyền thông**, không hoàn toàn trùng với chất lượng
+    - Nhiều phim có popularity cao nhưng vote trung bình
+    """)
     # =========================
 # TAB: TIỀN XỬ LÍ DỮ LIỆU
 # =========================
