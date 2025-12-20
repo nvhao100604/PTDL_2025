@@ -181,9 +181,7 @@ with st.sidebar:
         "Phân tích TMDb",
         "Tiền xử lí dữ liệu",
         "EDA",
-        "Yếu tố tài chính",
-        "Yếu tố nội dung và cấu trúc"
-    ]
+        "Yếu tố tài chính"    ]
 )
 
 
