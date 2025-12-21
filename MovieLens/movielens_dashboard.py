@@ -115,24 +115,29 @@ def load_data():
 
         tmdb_full = tmdb_mov.merge(tmdb_cred, on='movie_id')
 
-        # ===== TẠO FULL_DATA (CHUẨN) =====
+        # ===== TẠO CLEAN_TITLE ĐỂ MERGE =====
         movies_tmp = movies.copy()
         movies_tmp['clean_title'] = (
             movies_tmp['Title']
-            .str.replace(r"\s\(\d{4}\)", "", regex=True)
+            .str.replace(r'\s*\(\d{4}\)$', '', regex=True)
             .str.lower()
+            .str.strip()
         )
 
         tmdb_tmp = tmdb_full.copy()
-        tmdb_tmp['clean_title'] = tmdb_tmp['original_title'].str.lower()
+        tmdb_tmp['clean_title'] = (
+            tmdb_tmp['original_title']
+            .str.lower()
+            .str.strip()
+        )
 
         # ====== MERGE ======
         full_data = (
             movies_tmp
-            .merge(movie_targets, on='MovieID')
+            .merge(movie_targets, on='MovieID', how='inner')
             .merge(
                 tmdb_tmp[['clean_title', 'budget', 'revenue',
-                        'runtime', 'popularity', 'vote_count', 'vote_average']],
+                        'runtime', 'popularity', 'vote_count', 'vote_average', 'crew', 'cast', 'release_date']],
                 on='clean_title',
                 how='inner'
             )
@@ -147,6 +152,14 @@ def load_data():
 
         # ====== 1 PHIM = 1 DÒNG ======
         full_data = full_data.drop_duplicates(subset=['MovieID'])
+
+        # Add missing columns for analysis tabs
+        full_data['director'] = full_data['crew'].apply(get_director)
+        actors = full_data['cast'].apply(get_top_actors)
+        full_data['actor_1'] = actors.apply(lambda x: x[0] if len(x) > 0 else np.nan)
+        full_data['actor_2'] = actors.apply(lambda x: x[1] if len(x) > 1 else np.nan)
+        full_data['actor_3'] = actors.apply(lambda x: x[2] if len(x) > 2 else np.nan)
+        full_data['release_year'] = pd.to_datetime(full_data['release_date'], errors='coerce').dt.year
 
         return users, movies, ratings, movie_targets, tmdb_full, full_data  
 
@@ -1068,7 +1081,7 @@ elif analysis_type == "Yếu tố tài chính":
 # TAB: YẾU TỐ NỘI DUNG & CẤU TRÚC
 # =========================
 
-elif analysis_type == "Yếu tố nội dung & cấu trúc":
+elif analysis_type == "Yếu tố nội dung và cấu trúc":
     st.markdown("## 🎞️ Yếu tố Nội dung & Cấu trúc phim")
 
     df = full_data.copy()
@@ -1106,7 +1119,9 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
         'X_train_s': X_train_s,
         'X_test_s': X_test_s,
         'y_train': y_train,
-        'y_test': y_test
+        'y_test': y_test,
+        'feature_cols': feature_cols,
+        'df_content': df
     })
 
 
@@ -1164,7 +1179,7 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
         )
 
         coef = pd.DataFrame({
-            'Feature': X_train.columns,
+            'Feature': st.session_state['X_train'].columns,
             'Coefficient': lasso.coef_
         }).query("Coefficient != 0")
 
@@ -1253,7 +1268,7 @@ elif analysis_type == "Yếu tố nội dung & cấu trúc":
         - Cá nhân hóa theo nhóm khán giả
         """)
 
-elif analysis_type == "Yếu tố nhân sự & thời gian":
+elif analysis_type == "Yếu tố nhân sự và thời gian":
     st.markdown("## 👥⏳ Yếu tố Nhân sự & Thời gian phát hành")
 
     df = full_data.copy()
@@ -1263,11 +1278,16 @@ elif analysis_type == "Yếu tố nhân sự & thời gian":
         'release_year', 'avg_rating', 'vote_count'
     ]
 
-    df = df[cols_needed].dropna()
+    # Only drop rows missing REQUIRED columns
+    df = df.dropna(subset=['director', 'release_year', 'avg_rating', 'vote_count']).copy()
     df = df[df['vote_count'] > 50]
 
+    if len(df) == 0:
+        st.warning("⚠️ Không đủ dữ liệu sau khi lọc.")
+        st.stop()
+
     # Giảm size cho Streamlit
-    df = df.sample(n=min(50000, len(df)), random_state=42)
+    df = df.sample(n=min(5000, len(df)), random_state=42)
 
     tab1, tab2, tab3, tab4 = st.tabs([
         "🎬 Đạo diễn",
@@ -1301,31 +1321,41 @@ elif analysis_type == "Yếu tố nhân sự & thời gian":
     with tab2:
         st.subheader("🎭 Diễn viên và chất lượng phim")
 
-        actors = pd.concat([
-            df[['actor_1']].rename(columns={'actor_1': 'actor'}),
-            df[['actor_2']].rename(columns={'actor_2': 'actor'}),
-            df[['actor_3']].rename(columns={'actor_3': 'actor'})
-        ])
+        # Tách diễn viên từ 3 cột
+        actors_list = []
+        for idx, row in df.iterrows():
+            for actor_col in ['actor_1', 'actor_2', 'actor_3']:
+                if pd.notna(row[actor_col]):
+                    actors_list.append({
+                        'actor': row[actor_col],
+                        'avg_rating': row['avg_rating']
+                    })
+        
+        if len(actors_list) > 0:
+            actors_df = pd.DataFrame(actors_list)
 
-        actors = actors.join(df[['avg_rating']])
-
-        actor_stats = (
-            actors.groupby('actor')
-            .agg(
-                avg_rating_mean=('avg_rating', 'mean'),
-                movie_count=('avg_rating', 'count')
+            actor_stats = (
+                actors_df.groupby('actor')
+                .agg(
+                    avg_rating_mean=('avg_rating', 'mean'),
+                    movie_count=('avg_rating', 'count')
+                )
+                .query("movie_count >= 10")
+                .sort_values('avg_rating_mean', ascending=False)
+                .head(15)
+                .reset_index()
             )
-            .query("movie_count >= 10")
-            .sort_values('avg_rating_mean', ascending=False)
-            .head(15)
-            .reset_index()
-        )
 
-        st.dataframe(actor_stats, use_container_width=True)
+            if len(actor_stats) > 0:
+                st.dataframe(actor_stats, use_container_width=True)
+                st.info("""
+                🎯 Diễn viên có nhiều phim + điểm cao → khả năng chọn kịch bản tốt
+                """)
+            else:
+                st.info("ℹ️ Không có diễn viên nào xuất hiện trong ≥ 10 phim.")
+        else:
+            st.warning("⚠️ Không có dữ liệu diễn viên.")
 
-        st.info("""
-        🎯 Diễn viên có nhiều phim + điểm cao → khả năng chọn kịch bản tốt
-        """)
     with tab3:
         st.subheader("📆 Xu hướng chất lượng theo thời gian")
 
@@ -1339,17 +1369,20 @@ elif analysis_type == "Yếu tố nhân sự & thời gian":
             .reset_index()
         )
 
-        fig = px.line(
-            year_stats,
-            x='release_year',
-            y='avg_rating_mean',
-            markers=True,
-            title="Xu hướng điểm trung bình theo năm phát hành"
-        )
+        if len(year_stats) > 0:
+            fig = px.line(
+                year_stats,
+                x='release_year',
+                y='avg_rating_mean',
+                markers=True,
+                title="Xu hướng điểm trung bình theo năm phát hành"
+            )
 
-        st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True)
+            st.caption("Chỉ hiển thị các năm có ≥ 20 phim")
+        else:
+            st.warning("⚠️ Không đủ dữ liệu theo năm.")
 
-        st.caption("Chỉ hiển thị các năm có ≥ 20 phim")
     with tab4:
         st.subheader("📊 Hồi quy: Nhân sự & Thời gian")
 
@@ -1358,35 +1391,36 @@ elif analysis_type == "Yếu tố nhân sự & thời gian":
             df['director']
             .value_counts()
             .head(20)
-            .index
+            .index.tolist()
         )
 
-        df_reg = df[df['director'].isin(top_directors)]
+        df_reg = df[df['director'].isin(top_directors)].copy()
 
-        X = pd.get_dummies(
-            df_reg[['director', 'release_year']],
-            drop_first=True
-        )
-        y = df_reg['avg_rating']
+        if len(df_reg) > 20:
+            X = pd.get_dummies(
+                df_reg[['director', 'release_year']],
+                drop_first=True
+            )
+            y = df_reg['avg_rating']
 
-        X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.2, random_state=42
-        )
+            X_train, X_test, y_train, y_test = train_test_split(
+                X, y, test_size=0.2, random_state=42
+            )
 
-        model = LinearRegression().fit(X_train, y_train)
+            model = LinearRegression().fit(X_train, y_train)
 
-        r2 = r2_score(y_test, model.predict(X_test))
+            r2 = r2_score(y_test, model.predict(X_test))
 
-        st.metric("R² (Test)", f"{r2:.4f}")
+            st.metric("R² (Test)", f"{r2:.4f}")
 
-        st.success("""
-        ✅ Kết luận:
-        - Nhân sự có ảnh hưởng thật sự
-        - Nhưng chỉ giải thích một phần biến thiên điểm
-        - Nội dung & thị hiếu vẫn là yếu tố quyết định
-        """)
-
-
+            st.success("""
+            ✅ Kết luận:
+            - Nhân sự có ảnh hưởng thật sự
+            - Nhưng chỉ giải thích một phần biến thiên điểm
+            - Nội dung & thị hiếu vẫn là yếu tố quyết định
+            """)
+        else:
+            st.warning("⚠️ Không đủ dữ liệu để huấn luyện mô hình hồi quy.")
 
 # Footer
 st.markdown("---")
